@@ -1,0 +1,1273 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Post Test Day 1</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@700;800;900&display=swap');
+:root {
+  --teal: #0f7777;
+  --teal-2: #2f9f9a;
+  --blue: #2d64a0;
+  --sky: #b9eef7;
+  --cream: #fff1e6;
+  --yellow: #ffc857;
+  --orange: #ff9f1c;
+  --ink: #17313b;
+  --muted: #5e7580;
+  --white: #ffffff;
+  --template-green: #22b9aa;
+  --template-sky: #9fe8f7;
+  --template-deep: #2368a9;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Baloo 2", "Comic Sans MS", "Nunito", Arial, sans-serif;
+  font-weight: 500;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 14% 12%, rgba(255,255,255,.92) 0 34px, transparent 35px),
+    radial-gradient(circle at 60% 8%, rgba(255,255,255,.82) 0 28px, transparent 29px),
+    linear-gradient(180deg, #c8f3fb 0%, #a7e8f4 54%, #86dbe8 100%);
+}
+a { color: inherit; }
+.page-shell { min-height: 100vh; isolation: isolate; }
+.page-shell::after,
+.test-shell::after {
+  content: "";
+  position: fixed;
+  left: -4vw;
+  right: -4vw;
+  bottom: -3vh;
+  height: 16vh;
+  background:
+    radial-gradient(80% 110% at 20% 0%, rgba(30,176,163,.9) 0 58%, transparent 59%),
+    radial-gradient(80% 110% at 75% 0%, rgba(26,154,181,.9) 0 58%, transparent 59%);
+  pointer-events: none;
+  z-index: 0;
+}
+.page-shell > *, .test-shell > * { position: relative; z-index: 2; }
+.hero {
+  min-height: 78vh;
+  padding: 44px clamp(22px, 5vw, 78px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, .75fr);
+  gap: 38px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.section, .test-shell { isolation: isolate; }
+.hero::before, .section::before, .test-shell::before {
+  content: "";
+  position: absolute;
+  left: 5vw;
+  bottom: 8vh;
+  width: 54px;
+  height: 128px;
+  border-radius: 22px 22px 4px 4px;
+  background:
+    repeating-linear-gradient(180deg, rgba(255,255,255,.45) 0 12px, transparent 12px 24px),
+    linear-gradient(180deg, #e4c65f, #b9993d);
+  box-shadow:
+    74px 28px 0 -8px #d9bd63,
+    calc(86vw) -10px 0 -6px #d9bd63,
+    calc(90vw) 20px 0 -10px #b9993d;
+  opacity: .6;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero::after, .section::after {
+  content: "";
+  position: absolute;
+  inset: auto -8% -18% auto;
+  width: 36vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero > *, .section > *, .test-shell > * { position: relative; z-index: 2; }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(15,119,119,.14);
+  color: var(--teal);
+  font-weight: 900;
+  letter-spacing: 0;
+}
+h1, h2, h3 {
+  letter-spacing: 0;
+  margin: 0;
+  font-family: "Nunito", "Baloo 2", Arial, sans-serif;
+  font-weight: 900;
+}
+h1 {
+  max-width: 920px;
+  font-size: clamp(46px, 6vw, 84px);
+  line-height: .98;
+  color: #0c6f6c;
+}
+.hero-copy {
+  max-width: 820px;
+  margin: 22px 0 0;
+  font-size: clamp(20px, 2vw, 30px);
+  line-height: 1.35;
+  font-weight: 700;
+}
+.hero-panel {
+  background: rgba(255,247,237,.94);
+  border: 4px solid rgba(45,100,160,.28);
+  border-radius: 8px;
+  padding: 22px;
+  box-shadow: 0 20px 44px rgba(13,82,94,.18);
+}
+.hero-panel h2 { font-size: 26px; color: var(--blue); margin-bottom: 12px; }
+.quick-links, .button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #3d7fc4, #265f9f);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 900;
+  border: 0;
+  cursor: pointer;
+}
+.button.secondary { background: var(--teal-2); }
+.button.light { background: #fff; color: var(--teal); border: 2px solid rgba(15,119,119,.32); }
+.section {
+  position: relative;
+  padding: 54px clamp(18px, 4vw, 70px);
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: end;
+  margin-bottom: 24px;
+}
+.section h2 { font-size: clamp(32px, 4vw, 54px); color: var(--teal); }
+.section-note { max-width: 760px; color: var(--muted); font-size: 19px; font-weight: 700; line-height: 1.45; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(210px, 1fr));
+  gap: 16px;
+}
+.day-card {
+  background: rgba(255,255,255,.86);
+  border: 3px solid rgba(15,119,119,.25);
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 12px 28px rgba(23,49,59,.12);
+}
+.day-card h3 { font-size: 24px; color: var(--blue); margin-bottom: 8px; }
+.day-card p, .day-card li { font-size: 16px; line-height: 1.38; }
+.duration {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #fff1a7;
+  color: #8a5700;
+  font-weight: 900;
+  margin: 10px 0;
+}
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+.resource-block {
+  background: rgba(255,247,237,.92);
+  border: 2px solid rgba(45,100,160,.22);
+  border-radius: 8px;
+  padding: 18px;
+}
+.resource-block h3 { font-size: 22px; color: var(--teal); margin-bottom: 10px; }
+.mini-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,.9);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.mini-table th, .mini-table td {
+  border: 2px solid rgba(15,119,119,.25);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+  font-size: clamp(13px, 1.05vw, 16px);
+  line-height: 1.18;
+}
+.mini-table th { background: #167b78; color: white; }
+.footer {
+  padding: 26px clamp(18px, 4vw, 70px) 44px;
+  color: var(--muted);
+  font-weight: 800;
+}
+.deck-body {
+  background: #dff5f5;
+  overflow: hidden;
+}
+.deck-nav {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 20;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: rgba(255,255,255,.85);
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.16);
+}
+.deck-nav button {
+  border: 0;
+  border-radius: 8px;
+  background: var(--blue);
+  color: white;
+  width: 42px;
+  height: 38px;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.slide-counter { min-width: 68px; text-align: center; font-weight: 900; color: var(--teal); }
+.slide {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  padding: 34px 54px 74px;
+  background:
+    radial-gradient(circle at 54% 8%, rgba(255,255,255,.95) 0 28px, transparent 29px),
+    radial-gradient(circle at 58% 9%, rgba(255,255,255,.85) 0 22px, transparent 23px),
+    radial-gradient(circle at 50% 10%, rgba(255,255,255,.9) 0 20px, transparent 21px),
+    linear-gradient(180deg, #c8f3fb 0%, #a9ebf5 58%, #83dbe9 100%);
+  position: relative;
+  overflow: hidden;
+}
+.slide::before {
+  content: "";
+  position: absolute;
+  left: -5vw;
+  right: -5vw;
+  bottom: -4vh;
+  height: 17vh;
+  background:
+    radial-gradient(80% 120% at 18% 0%, rgba(35,185,170,.92) 0 56%, transparent 57%),
+    radial-gradient(80% 120% at 72% 0%, rgba(33,155,188,.9) 0 56%, transparent 57%);
+  z-index: 0;
+}
+.slide::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  bottom: 10vh;
+  width: 58px;
+  height: 128px;
+  border-radius: 22px 22px 4px 4px;
+  background:
+    repeating-linear-gradient(180deg, rgba(255,255,255,.48) 0 11px, transparent 11px 24px),
+    linear-gradient(180deg, #e4c65f, #a98e3b);
+  box-shadow:
+    74px 28px 0 -8px #d9bd63,
+    calc(100vw - 170px) -6px 0 -6px #d9bd63,
+    calc(100vw - 104px) 30px 0 -12px #a98e3b;
+  opacity: .68;
+  z-index: 0;
+}
+.slide > * { position: relative; z-index: 1; }
+.slide.active { display: grid; }
+.slide.layout-title {
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, .72fr);
+  align-items: center;
+  gap: 36px;
+}
+.slide.layout-content { grid-template-rows: auto minmax(0, 1fr); gap: 18px; }
+.slide-kicker {
+  font-size: 20px;
+  color: var(--blue);
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+.slide h1 { font-size: clamp(48px, 6.2vw, 82px); color: #0b716e; }
+.slide h2 { font-size: clamp(34px, 4vw, 58px); color: #0b716e; }
+.subtitle {
+  font-size: clamp(21px, 2vw, 30px);
+  line-height: 1.24;
+  font-weight: 600;
+  margin-top: 14px;
+}
+.tag-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.tag {
+  display: inline-flex;
+  padding: 9px 13px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: #633f00;
+  font-weight: 900;
+  font-size: 18px;
+}
+.slide-panel, .note-box, .image-card {
+  background: rgba(255,247,237,.94);
+  border: 4px solid rgba(45,100,160,.25);
+  border-radius: 8px;
+  box-shadow: 0 14px 32px rgba(23,49,59,.13);
+}
+.slide-panel { padding: 20px 22px; }
+.slide-panel h3 { font-size: 27px; color: var(--blue); margin-bottom: 10px; }
+.slide-panel p, .slide-panel li {
+  font-size: clamp(21px, 1.75vw, 27px);
+  line-height: 1.23;
+  font-weight: 500;
+}
+.slide-panel ul { margin: 0; padding-left: 26px; }
+.two-col {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.note-box {
+  padding: 18px 20px;
+  background: #2767a5;
+  color: white;
+}
+.note-box h3 { color: white; font-size: 28px; margin-bottom: 10px; }
+.note-box li, .note-box p { font-size: 21px; line-height: 1.28; font-weight: 600; }
+.image-card {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+.time-chip {
+  position: absolute;
+  top: 26px;
+  right: 34px;
+  background: linear-gradient(180deg, #ffe47a, #ffbf44);
+  color: #674100;
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 18px;
+}
+.big-list {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  min-height: 0;
+}
+.big-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+  background: rgba(255,247,237,.94);
+  border: 3px solid rgba(45,100,160,.18);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: clamp(21px, 1.75vw, 28px);
+  line-height: 1.22;
+  font-weight: 500;
+}
+.num-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: white;
+  font-weight: 1000;
+}
+.worksheet-page {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.worksheet-list { position: sticky; top: 10px; display: grid; gap: 8px; }
+.worksheet-preview {
+  background: rgba(255,255,255,.86);
+  border: 2px solid rgba(15,119,119,.22);
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 18px;
+}
+.worksheet-preview img { width: 100%; display: block; border-radius: 6px; }
+.wheel-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(280px, 520px) minmax(300px, 1fr);
+  gap: 34px;
+  align-items: center;
+  padding: 42px;
+}
+.embed-mode .wheel-page {
+  height: 100vh;
+  min-height: 0;
+  grid-template-columns: .9fr 1fr;
+  gap: 14px;
+  padding: 16px;
+  overflow: hidden;
+}
+.embed-mode .wheel-page h1 {
+  font-size: clamp(28px, 3.9vw, 46px);
+  line-height: .96;
+}
+.embed-mode .wheel-page .hero-copy {
+  font-size: clamp(13px, 1.3vw, 16px);
+  line-height: 1.16;
+  margin-top: 6px;
+}
+.embed-mode .wheel-page .result-box:last-of-type {
+  display: none;
+}
+.embed-mode .wheel-wrap {
+  width: min(42vw, 340px, calc(100vh - 36px));
+}
+.embed-mode .result-box {
+  padding: 10px;
+}
+.embed-mode .result-text {
+  font-size: 26px;
+  margin: 6px 0 8px;
+}
+.embed-mode .eyebrow {
+  font-size: 12px;
+  padding: 8px 12px;
+}
+.embed-mode .button {
+  font-size: 13px;
+  padding: 10px 14px;
+}
+.wheel-wrap { position: relative; width: min(80vw, 520px); aspect-ratio: 1; margin: auto; }
+#wheelCanvas { width: 100%; height: 100%; filter: drop-shadow(0 18px 34px rgba(19,84,94,.25)); }
+.pointer {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  width: 0;
+  height: 0;
+  border-top: 24px solid transparent;
+  border-bottom: 24px solid transparent;
+  border-left: 44px solid #17313b;
+}
+.result-box {
+  background: white;
+  border: 4px solid rgba(15,119,119,.28);
+  border-radius: 8px;
+  padding: 24px;
+}
+.result-text { font-size: 52px; color: var(--teal); font-weight: 1000; margin: 12px 0 18px; }
+.prep-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.prep-card {
+  background: rgba(255,247,237,.94);
+  border: 3px solid rgba(45,100,160,.23);
+  border-radius: 8px;
+  padding: 16px 18px;
+  min-height: 130px;
+}
+.prep-card h3 {
+  color: var(--blue);
+  font-size: 27px;
+  margin-bottom: 8px;
+}
+.prep-card p {
+  margin: 0;
+  font-size: clamp(21px, 1.7vw, 27px);
+  line-height: 1.2;
+  font-weight: 500;
+}
+.example-box {
+  background: #fff7cf;
+  border: 3px solid rgba(255,159,28,.42);
+  border-radius: 8px;
+  padding: 18px 20px;
+}
+.example-box h3 {
+  color: #945c00;
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+.source-note {
+  position: absolute;
+  left: 54px;
+  bottom: 22px;
+  max-width: calc(100% - 108px);
+  color: #5b6f78;
+  font-size: 15px;
+  font-weight: 800;
+}
+.mission-board {
+  background: rgba(255,247,237,.94);
+  border: 4px solid rgba(45,100,160,.25);
+  border-radius: 8px;
+  padding: 22px;
+  box-shadow: 0 14px 32px rgba(23,49,59,.13);
+}
+.mission-board h3 {
+  color: var(--blue);
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+.mission-board ul {
+  margin: 0;
+  padding-left: 24px;
+}
+.mission-board li {
+  font-size: clamp(21px, 1.7vw, 28px);
+  line-height: 1.22;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.teacher-window {
+  display: grid;
+  grid-template-columns: .72fr 1fr;
+  gap: 18px;
+  align-items: stretch;
+  min-height: 0;
+}
+.teacher-menu {
+  max-width: 1120px;
+  margin: 14px auto;
+  border: 3px solid rgba(23,49,59,.28);
+  border-radius: 8px;
+  background: rgba(255,253,248,.96);
+  box-shadow: 0 10px 22px rgba(23,49,59,.10);
+  overflow: hidden;
+}
+.teacher-menu summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 16px;
+  background: #17313b;
+  color: #ffcf5c;
+  cursor: pointer;
+  font-family: "Nunito", "Baloo 2", Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+.teacher-menu summary::-webkit-details-marker { display: none; }
+.teacher-menu summary::after {
+  content: "Buka/Tutup";
+  color: white;
+  font-size: 13px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.18);
+}
+.teacher-menu ul {
+  margin: 0;
+  padding: 16px 22px 18px 38px;
+}
+.teacher-menu li {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.34;
+  font-weight: 600;
+}
+.teacher-menu p {
+  margin: 0;
+  padding: 16px 20px;
+  font-size: 18px;
+  line-height: 1.38;
+  font-weight: 600;
+}
+.slide .teacher-menu {
+  max-width: none;
+  margin: 0;
+}
+.slide .teacher-menu summary {
+  font-size: 26px;
+  padding: 16px 20px;
+}
+.slide .teacher-menu li {
+  font-size: clamp(20px, 1.55vw, 25px);
+  line-height: 1.22;
+}
+.embed-mode .teacher-menu { display: none; }
+.teacher-alert {
+  background: #17313b;
+  color: white;
+  border-radius: 8px;
+  padding: 22px;
+  border: 4px solid rgba(255,255,255,.5);
+}
+.teacher-alert h3 {
+  color: #ffcf5c;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.teacher-alert p {
+  font-size: clamp(21px, 1.7vw, 28px);
+  line-height: 1.24;
+  font-weight: 600;
+  margin: 0;
+}
+.teacher-note-list {
+  display: grid;
+  gap: 10px;
+  min-height: 0;
+}
+.teacher-note-item {
+  background: rgba(255,255,255,.92);
+  border: 3px solid rgba(23,49,59,.18);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: clamp(20px, 1.6vw, 26px);
+  line-height: 1.2;
+  font-weight: 500;
+}
+.test-shell {
+  min-height: 100vh;
+  padding: 36px clamp(16px, 4vw, 64px);
+  position: relative;
+  background:
+    radial-gradient(circle at 18% 10%, rgba(255,255,255,.9) 0 30px, transparent 31px),
+    linear-gradient(180deg, #c8f3fb 0%, #a9ebf5 58%, #83dbe9 100%);
+}
+.test-card {
+  max-width: 980px;
+  margin: 0 auto 16px;
+  background: rgba(255,247,237,.94);
+  border: 3px solid rgba(45,100,160,.26);
+  border-radius: 8px;
+  padding: 22px;
+  box-shadow: 0 14px 30px rgba(23,49,59,.12);
+}
+.test-form-shell {
+  display: block;
+}
+.test-landing {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, .76fr);
+  gap: 22px;
+  align-items: start;
+}
+.test-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  background: #fff1a7;
+  color: #735000;
+  font-weight: 900;
+}
+.test-hero-panel {
+  background: #ffffff;
+  border: 3px solid rgba(15,119,119,.22);
+  border-radius: 8px;
+  padding: 18px;
+}
+.test-hero-panel h2 {
+  color: var(--blue);
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.test-steps {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.test-steps li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  align-items: start;
+  font-size: 19px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+.test-steps span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: white;
+  font-weight: 900;
+}
+.test-entry-grid {
+  margin-top: 18px;
+  grid-template-columns: 1fr;
+}
+.hidden { display: none !important; }
+.quiz-card {
+  max-width: 1040px;
+}
+.quiz-topline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.quiz-pill {
+  display: inline-flex;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #fff1a7;
+  color: #735000;
+  font-weight: 900;
+}
+.quiz-progress {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin: 14px 0 18px;
+}
+.quiz-dot {
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--teal-2), var(--yellow));
+}
+.quiz-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 18px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.form-grid.test-entry-grid {
+  grid-template-columns: 1fr;
+}
+.field label {
+  display: block;
+  color: var(--blue);
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.field input, .field select {
+  width: 100%;
+  min-height: 48px;
+  border: 2px solid rgba(15,119,119,.32);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: 600 19px "Baloo 2", "Comic Sans MS", Arial, sans-serif;
+  color: var(--ink);
+  background: #fff;
+}
+.question-card {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 2px dashed rgba(15,119,119,.22);
+}
+.question-card h3 { color: var(--teal); font-size: 24px; }
+.option-label {
+  display: block;
+  padding: 10px 12px;
+  border: 2px solid rgba(15,119,119,.18);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 19px;
+  font-weight: 500;
+}
+.option-label input { margin-right: 8px; }
+.status-box {
+  display: none;
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 900;
+}
+.status-box.ok { display: block; background: #dff8da; color: #246326; }
+.status-box.warn { display: block; background: #fff2ba; color: #7a5100; }
+.status-box.err { display: block; background: #ffe0dc; color: #8d2b1c; }
+.results-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  gap: 14px;
+  max-width: 1120px;
+  margin: 0 auto 16px;
+}
+.metric-card {
+  background: rgba(255,247,237,.94);
+  border: 3px solid rgba(45,100,160,.24);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 12px 26px rgba(23,49,59,.12);
+}
+.metric-card strong {
+  display: block;
+  color: var(--teal);
+  font-size: 34px;
+  line-height: 1;
+}
+.metric-card span {
+  color: var(--muted);
+  font-weight: 700;
+}
+.filter-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 12px;
+}
+.results-table-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+.results-table {
+  width: 100%;
+  min-width: 940px;
+  border-collapse: collapse;
+  background: rgba(255,247,237,.96);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 12px 26px rgba(23,49,59,.12);
+}
+.results-table th, .results-table td {
+  border: 2px solid rgba(45,100,160,.15);
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 15px;
+}
+.results-table th {
+  background: #2d64a0;
+  color: #fff;
+}
+.spin-slide-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 430px;
+  gap: 18px;
+  min-height: 0;
+}
+.spin-embed {
+  background: rgba(255,247,237,.94);
+  border: 4px solid rgba(45,100,160,.25);
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 0;
+  box-shadow: 0 14px 32px rgba(23,49,59,.13);
+}
+.spin-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+}
+@media (max-width: 980px) {
+  .hero, .cards, .two-col, .three-col, .worksheet-page, .wheel-page, .prep-grid, .form-grid, .results-summary, .filter-row, .spin-slide-grid, .test-landing, .teacher-window { grid-template-columns: 1fr; }
+  .slide { overflow: auto; height: auto; min-height: 100vh; }
+}
+@media print {
+  @page { size: 16in 9in; margin: 0; }
+  body.deck-body { background: white; }
+  .deck-nav { display: none; }
+  .slide { display: grid !important; width: 16in; height: 9in; page-break-after: always; overflow: hidden; }
+}
+
+
+/* Toys & Craft online deck refinements */
+.deck-body .slide {
+  padding: 32px 54px 86px;
+}
+.deck-body .slide.layout-content {
+  gap: 14px;
+}
+.deck-body .slide-kicker {
+  font-size: 18px;
+}
+.deck-body .slide h1 {
+  font-size: clamp(46px, 5.5vw, 74px);
+  line-height: .98;
+}
+.deck-body .slide h2 {
+  font-size: clamp(32px, 3.55vw, 50px);
+  line-height: 1.02;
+}
+.deck-body .subtitle {
+  font-size: clamp(18px, 1.55vw, 24px);
+  line-height: 1.3;
+  font-weight: 500;
+}
+.deck-body .slide-panel {
+  padding: 18px 20px;
+}
+.deck-body .slide-panel h3,
+.deck-body .prep-card h3,
+.deck-body .mission-board h3 {
+  font-size: clamp(23px, 1.9vw, 29px);
+  line-height: 1.08;
+}
+.deck-body .slide-panel p,
+.deck-body .slide-panel li,
+.deck-body .prep-card p,
+.deck-body .mission-board li,
+.deck-body .big-item,
+.deck-body .teacher-alert p,
+.deck-body .teacher-note-item {
+  font-size: clamp(18px, 1.38vw, 23px);
+  line-height: 1.31;
+  font-weight: 500;
+}
+.deck-body .big-list {
+  gap: 8px;
+}
+.deck-body .big-item {
+  padding: 10px 14px;
+}
+.deck-body .num-dot {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+}
+.deck-body .prep-card {
+  min-height: 110px;
+}
+.deck-body .mini-table th,
+.deck-body .mini-table td {
+  font-size: clamp(15px, 1.12vw, 19px);
+  line-height: 1.25;
+  font-weight: 500;
+}
+.deck-body .mini-table th {
+  font-weight: 800;
+}
+.deck-body .time-chip {
+  font-size: 16px;
+  padding: 8px 13px;
+}
+.slide .teacher-menu.slide-note {
+  position: absolute;
+  left: 54px;
+  bottom: 24px;
+  width: min(620px, calc(100% - 190px));
+  max-width: none;
+  margin: 0;
+  z-index: 4;
+  box-shadow: 0 8px 20px rgba(23,49,59,.16);
+}
+.slide .teacher-menu.slide-note[open] {
+  width: min(760px, calc(100% - 190px));
+}
+.slide .teacher-menu.slide-note summary {
+  font-size: 15px;
+  padding: 8px 12px;
+}
+.slide .teacher-menu.slide-note summary::after {
+  font-size: 11px;
+  padding: 4px 8px;
+}
+.slide .teacher-menu.slide-note ul {
+  padding: 10px 18px 12px 32px;
+}
+.slide .teacher-menu.slide-note li {
+  font-size: 14px;
+  line-height: 1.28;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.photo-template {
+  display: grid;
+  grid-template-columns: .92fr 1.08fr;
+  gap: 20px;
+  align-items: stretch;
+  min-height: 0;
+}
+.photo-frame {
+  background: #fffdf8;
+  border: 5px solid rgba(45,100,160,.24);
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 14px 32px rgba(23,49,59,.13);
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+.photo-frame strong {
+  display: block;
+  color: #0b716e;
+  font-size: clamp(26px, 2.7vw, 38px);
+  line-height: 1.05;
+}
+.photo-frame span {
+  display: block;
+  color: #2c62a0;
+  font-size: clamp(18px, 1.5vw, 24px);
+  line-height: 1.25;
+  margin-top: 12px;
+}
+@media print {
+  .slide .teacher-menu.slide-note { display: none; }
+  .deck-body .slide { padding-bottom: 74px; }
+}
+</style>
+</head>
+<body class="">
+
+<main class="test-shell">
+  <form class="test-form-shell" id="testForm">
+    <section class="test-card test-landing" id="introCard">
+      <div>
+        <p class="eyebrow">Math Champs Holiday Program Online</p>
+        <span class="test-hero-badge">Day 1 | Post Test</span>
+        <h1>Siap Mulai Post Test?</h1>
+        <p class="hero-copy">Isi data diri dulu, lalu klik tombol mulai. Setelah masuk ke halaman soal, jawab 5 pertanyaan pilihan ganda dengan teliti.</p>
+        
+<details class="teacher-menu">
+  <summary>CATATAN GURU</summary>
+  <ul><li>Pastikan semua siswa mengisi Email Siswa, Nama Lengkap, Cabang, dan Nama Teacher sebelum mulai.</li><li>Setelah test selesai, guru membuka dashboard hasil dan klik Refresh Data sampai nama siswa muncul.</li><li>Jika siswa salah memilih cabang/teacher, minta siswa menghubungi guru sebelum submit ulang.</li></ul>
+</details>
+
+      </div>
+      <div class="test-hero-panel">
+        <h2>Data Siswa</h2>
+        <ul class="test-steps"><li><span>1</span><strong>Isi identitas dengan benar.</strong></li><li><span>2</span><strong>Klik Mulai Test.</strong></li><li><span>3</span><strong>Jawab semua soal, lalu submit satu kali.</strong></li></ul>
+        <div class="form-grid test-entry-grid">
+          <div class="field"><label for="email">Email Siswa</label><input id="email" name="email" type="email" autocomplete="email" placeholder="nama@email.com" required></div>
+          <div class="field"><label for="studentName">Nama Lengkap</label><input id="studentName" name="studentName" type="text" autocomplete="name" placeholder="Tulis nama lengkap" required></div>
+          <div class="field"><label for="branchName">Cabang</label><select id="branchName" name="branchName" required><option value="">Pilih cabang</option></select></div>
+          <div class="field"><label for="teacherName">Nama Teacher</label><select id="teacherName" name="teacherName" required><option value="">Pilih teacher</option></select></div>
+        </div>
+        <div class="quiz-actions"><button class="button" type="button" id="startButton">Mulai Test</button><div class="status-box" id="statusBox" role="status"></div></div>
+      </div>
+    </section>
+    <section class="test-card quiz-card hidden" id="quizCard">
+      <div class="quiz-topline"><span class="quiz-pill">Day 1</span><span class="quiz-pill">Post Test</span><span class="quiz-pill" id="quizStudent">Siswa</span></div>
+      <h1>Post Test Day 1</h1>
+      <p class="hero-copy">Pilih satu jawaban yang paling tepat. Baca pelan-pelan, tidak perlu terburu-buru.</p>
+      <div class="quiz-progress" aria-hidden="true"><span class="quiz-dot"></span><span class="quiz-dot"></span><span class="quiz-dot"></span><span class="quiz-dot"></span><span class="quiz-dot"></span></div>
+      
+<section class="question-card">
+  <h3>1. Bahan utama yang bisa dipilih di spin wheel adalah ...</h3>
+  
+<label class="option-label">
+  <input type="radio" name="q1" value="A" required>
+  <strong>A.</strong> Stiker, manik-manik, kertas warna
+</label>
+<label class="option-label">
+  <input type="radio" name="q1" value="B" required>
+  <strong>B.</strong> Besi, semen, kaca
+</label>
+<label class="option-label">
+  <input type="radio" name="q1" value="C" required>
+  <strong>C.</strong> Kain tebal, paku, cat tembok
+</label>
+<label class="option-label">
+  <input type="radio" name="q1" value="D" required>
+  <strong>D.</strong> Buku, tas, sepatu
+</label>
+</section>
+<section class="question-card">
+  <h3>2. Jika target pembelimu adalah teman sekolah, produk yang cocok sebaiknya ...</h3>
+  
+<label class="option-label">
+  <input type="radio" name="q2" value="A" required>
+  <strong>A.</strong> Mudah dipakai anak-anak
+</label>
+<label class="option-label">
+  <input type="radio" name="q2" value="B" required>
+  <strong>B.</strong> Sangat berat
+</label>
+<label class="option-label">
+  <input type="radio" name="q2" value="C" required>
+  <strong>C.</strong> Berbahaya
+</label>
+<label class="option-label">
+  <input type="radio" name="q2" value="D" required>
+  <strong>D.</strong> Tidak punya manfaat
+</label>
+</section>
+<section class="question-card">
+  <h3>3. Data sederhana dari calon pembeli berguna untuk ...</h3>
+  
+<label class="option-label">
+  <input type="radio" name="q3" value="A" required>
+  <strong>A.</strong> Membantu memilih ide produk
+</label>
+<label class="option-label">
+  <input type="radio" name="q3" value="B" required>
+  <strong>B.</strong> Membuat harga jadi nol
+</label>
+<label class="option-label">
+  <input type="radio" name="q3" value="C" required>
+  <strong>C.</strong> Menghilangkan brand
+</label>
+<label class="option-label">
+  <input type="radio" name="q3" value="D" required>
+  <strong>D.</strong> Menutup usaha
+</label>
+</section>
+<section class="question-card">
+  <h3>4. Contoh produk dari manik-manik adalah ...</h3>
+  
+<label class="option-label">
+  <input type="radio" name="q4" value="A" required>
+  <strong>A.</strong> Gelang warna-warni
+</label>
+<label class="option-label">
+  <input type="radio" name="q4" value="B" required>
+  <strong>B.</strong> Topeng kertas warna
+</label>
+<label class="option-label">
+  <input type="radio" name="q4" value="C" required>
+  <strong>C.</strong> Stiker label buku
+</label>
+<label class="option-label">
+  <input type="radio" name="q4" value="D" required>
+  <strong>D.</strong> Poster warna
+</label>
+</section>
+<section class="question-card">
+  <h3>5. Saat sharing ide, sikap yang baik adalah ...</h3>
+  
+<label class="option-label">
+  <input type="radio" name="q5" value="A" required>
+  <strong>A.</strong> Mendengarkan dan memberi apresiasi
+</label>
+<label class="option-label">
+  <input type="radio" name="q5" value="B" required>
+  <strong>B.</strong> Mengejek ide teman
+</label>
+<label class="option-label">
+  <input type="radio" name="q5" value="C" required>
+  <strong>C.</strong> Mematikan kamera terus
+</label>
+<label class="option-label">
+  <input type="radio" name="q5" value="D" required>
+  <strong>D.</strong> Tidak mau bicara sama sekali
+</label>
+</section>
+      <div class="quiz-actions"><button class="button" type="submit">Submit Jawaban</button><div class="status-box" id="quizStatusBox" role="status"></div></div>
+    </section>
+  </form>
+</main>
+<script src="test-config.js?v=toyscraft-fnbstyle-20260623"></script>
+<script>
+const TEST_META = {
+  testId: "toys-day1-post",
+  day: 1,
+  kindId: "post",
+  kind: "Post Test",
+  answerKey: {"q1": "A", "q2": "A", "q3": "A", "q4": "A", "q5": "A"},
+  questions: [{"question": "Bahan utama yang bisa dipilih di spin wheel adalah ...", "choices": ["Stiker, manik-manik, kertas warna", "Besi, semen, kaca", "Kain tebal, paku, cat tembok", "Buku, tas, sepatu"], "answer": "A"}, {"question": "Jika target pembelimu adalah teman sekolah, produk yang cocok sebaiknya ...", "choices": ["Mudah dipakai anak-anak", "Sangat berat", "Berbahaya", "Tidak punya manfaat"], "answer": "A"}, {"question": "Data sederhana dari calon pembeli berguna untuk ...", "choices": ["Membantu memilih ide produk", "Membuat harga jadi nol", "Menghilangkan brand", "Menutup usaha"], "answer": "A"}, {"question": "Contoh produk dari manik-manik adalah ...", "choices": ["Gelang warna-warni", "Topeng kertas warna", "Stiker label buku", "Poster warna"], "answer": "A"}, {"question": "Saat sharing ide, sikap yang baik adalah ...", "choices": ["Mendengarkan dan memberi apresiasi", "Mengejek ide teman", "Mematikan kamera terus", "Tidak mau bicara sama sekali"], "answer": "A"}]
+};
+const config = window.MATHCHAMPS_TEST_CONFIG || {};
+const teacherSelect = document.getElementById("teacherName");
+const branchSelect = document.getElementById("branchName");
+(config.branches || []).forEach((name) => { const opt = document.createElement("option"); opt.value = name; opt.textContent = name; branchSelect.appendChild(opt); });
+(config.teachers || []).forEach((name) => { const opt = document.createElement("option"); opt.value = name; opt.textContent = name; teacherSelect.appendChild(opt); });
+function setStatus(type, message, targetId = "statusBox") { const box = document.getElementById(targetId); box.className = `status-box ${type}`; box.textContent = message; }
+function collectAnswers(form) { const answers = {}; Object.keys(TEST_META.answerKey).forEach((key) => { answers[key] = form.querySelector(`input[name="${key}"]:checked`)?.value || ""; }); return answers; }
+function calculateScore(answers) { const total = Object.keys(TEST_META.answerKey).length || 1; const correct = Object.entries(TEST_META.answerKey).reduce((count, [key, answer]) => count + (answers[key] === answer ? 1 : 0), 0); return Math.round((correct / total) * 100); }
+function countCorrect(answers) { return Object.entries(TEST_META.answerKey).reduce((count, [key, answer]) => count + (answers[key] === answer ? 1 : 0), 0); }
+function csvSafe(value) { return String(value ?? "").replace(/[\n\r]+/g, " ").trim(); }
+function studentKey(email) { return `${TEST_META.testId}|${String(email || "").trim().toLowerCase()}`; }
+function resultPrefix() { return `${config.resultPrefix}/day${TEST_META.day}/${TEST_META.kindId}`; }
+function requireStorageConfig() { return Boolean(config.supabaseUrl && config.storageKey && config.resultPrefix); }
+async function listExistingResults() {
+  if (!requireStorageConfig()) return [];
+  const response = await fetch(`${config.supabaseUrl}/storage/v1/object/list/html-pages`, { method: "POST", headers: { apikey: config.storageKey, Authorization: `Bearer ${config.storageKey}`, "Content-Type": "application/json" }, body: JSON.stringify({ prefix: resultPrefix(), limit: 1000, offset: 0, sortBy: { column: "created_at", order: "desc" } }) });
+  if (!response.ok) throw new Error(await response.text());
+  const files = await response.json();
+  const rows = [];
+  for (const file of files.filter((item) => item.name && item.name.endsWith(".json"))) {
+    const url = `${config.supabaseUrl}/storage/v1/object/public/html-pages/${resultPrefix()}/${file.name}?v=${Date.now()}`;
+    const itemResponse = await fetch(url);
+    if (itemResponse.ok) rows.push(await itemResponse.json());
+  }
+  return rows;
+}
+async function hasAlreadySubmitted(email) { const key = studentKey(email); if (localStorage.getItem(`mathchamps-online-submitted:${key}`)) return true; const existing = await listExistingResults(); return existing.some((row) => { const rowEmail = String(row.email || row["Email Siswa"] || "").trim().toLowerCase(); const rowTestId = String(row.testId || row.test_id || ""); return (row.student_key && row.student_key === key) || (rowEmail === String(email).trim().toLowerCase() && rowTestId === TEST_META.testId); }); }
+async function saveResponse(payload) {
+  if (!requireStorageConfig()) throw new Error("Konfigurasi storage hasil belum lengkap di test-config.js.");
+  const random = Math.random().toString(36).slice(2, 10);
+  const fileName = `${Date.now()}-${random}.json`;
+  const objectPath = `${resultPrefix()}/${fileName}`;
+  const response = await fetch(`${config.supabaseUrl}/storage/v1/object/html-pages/${objectPath}`, { method: "POST", headers: { apikey: config.storageKey, Authorization: `Bearer ${config.storageKey}`, "Content-Type": "application/json", "x-upsert": "false" }, body: JSON.stringify(payload) });
+  if (!response.ok) throw new Error(await response.text());
+  return fileName;
+}
+document.getElementById("startButton").addEventListener("click", async () => {
+  const form = document.getElementById("testForm");
+  const email = form.email.value.trim().toLowerCase();
+  const name = csvSafe(form.studentName.value);
+  const branch = form.branchName.value;
+  const teacher = form.teacherName.value;
+  const startButton = document.getElementById("startButton");
+  if (!email || !name || !branch || !teacher) { setStatus("warn", "Isi Email Siswa, Nama Lengkap, Cabang, dan Nama Teacher dulu ya."); return; }
+  startButton.disabled = true; setStatus("warn", "Mengecek data siswa...");
+  try { if (await hasAlreadySubmitted(email)) { setStatus("warn", "Data email ini sudah pernah submit test ini. Jika ada kesalahan, hubungi guru."); startButton.disabled = false; return; } document.getElementById("quizStudent").textContent = `${name} | ${branch}`; document.getElementById("introCard").classList.add("hidden"); document.getElementById("quizCard").classList.remove("hidden"); window.scrollTo(0, 0); }
+  catch (error) { console.error(error); setStatus("err", "Belum bisa mengecek data. Cek koneksi internet lalu coba lagi."); startButton.disabled = false; }
+});
+document.getElementById("testForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const email = form.email.value.trim().toLowerCase();
+  if (!email || !form.studentName.value.trim() || !form.branchName.value || !form.teacherName.value) { setStatus("warn", "Isi data diri dulu ya sebelum submit.", "quizStatusBox"); return; }
+  const answers = collectAnswers(form);
+  if (Object.values(answers).some((answer) => !answer)) { setStatus("warn", "Masih ada soal yang belum dijawab.", "quizStatusBox"); return; }
+  const submitButton = form.querySelector("button[type='submit']");
+  submitButton.disabled = true; setStatus("warn", "Mengecek dan menyimpan jawaban ke spreadsheet hasil...", "quizStatusBox");
+  try {
+    if (await hasAlreadySubmitted(email)) { setStatus("warn", "Kamu sudah pernah submit test ini. Jika ada kesalahan, hubungi guru.", "quizStatusBox"); submitButton.disabled = false; return; }
+    const now = new Date();
+    const score = calculateScore(answers);
+    const correct = countCorrect(answers);
+    const answerLabels = Object.keys(TEST_META.answerKey).map((key) => answers[key]);
+    const payload = { submitted_at: now.toISOString(), submittedAt: now.toISOString(), submitted_date: now.toLocaleDateString("id-ID", { timeZone: "Asia/Jakarta", day: "2-digit", month: "short", year: "numeric" }), submitted_time: now.toLocaleTimeString("id-ID", { timeZone: "Asia/Jakarta", hour: "2-digit", minute: "2-digit", second: "2-digit" }), program: "Math Champs Toys & Craft Online", meeting: TEST_META.day, day: TEST_META.day, kind: TEST_META.kindId, kind_label: TEST_META.kind, testId: TEST_META.testId, test_id: TEST_META.testId, email, name: csvSafe(form.studentName.value), studentName: csvSafe(form.studentName.value), branch: form.branchName.value, branchName: form.branchName.value, className: form.branchName.value, classMode: "Online", teacher: form.teacherName.value, teacherName: form.teacherName.value, correct, score, student_key: studentKey(email), answers, answer_labels: answerLabels, questions: TEST_META.questions.map((question) => question.question) };
+    await saveResponse(payload);
+    localStorage.setItem(`mathchamps-online-submitted:${studentKey(email)}`, "1");
+    setStatus("ok", `Jawaban tersimpan. Skor kamu: ${score}. Guru bisa melihat hasilnya di spreadsheet hasil.`, "quizStatusBox");
+  } catch (error) { console.error(error); setStatus("err", "Jawaban belum berhasil tersimpan. Cek koneksi internet lalu coba submit lagi.", "quizStatusBox"); submitButton.disabled = false; }
+});
+</script>
+
+</body>
+</html>

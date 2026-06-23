@@ -1,0 +1,26 @@
+{
+  "program": "Holiday Program Online Toys & Craft",
+  "style_reference": "bahanajaronline-foodbaveragescomplete",
+  "meetings": 5,
+  "duration_minutes": 60,
+  "hub": "index.html",
+  "decks": [
+    "pertemuan-1-teacher-deck.html",
+    "pertemuan-2-teacher-deck.html",
+    "pertemuan-3-teacher-deck.html",
+    "pertemuan-4-teacher-deck.html",
+    "pertemuan-5-teacher-deck.html"
+  ],
+  "tests": [
+    "pre-test-day1.html",
+    "pre-test-day2.html",
+    "pre-test-day3.html",
+    "pre-test-day4.html",
+    "pre-test-day5.html",
+    "post-test-day1.html",
+    "post-test-day2.html",
+    "post-test-day3.html",
+    "post-test-day4.html",
+    "post-test-day5.html"
+  ]
+}

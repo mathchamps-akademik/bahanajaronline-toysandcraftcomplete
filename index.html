@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teaching Kit Online Toys &amp; Craft</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@700;800;900&display=swap');
+:root {
+  --teal: #0f7777;
+  --teal-2: #2f9f9a;
+  --blue: #2d64a0;
+  --sky: #b9eef7;
+  --cream: #fff1e6;
+  --yellow: #ffc857;
+  --orange: #ff9f1c;
+  --ink: #17313b;
+  --muted: #5e7580;
+  --white: #ffffff;
+  --template-green: #22b9aa;
+  --template-sky: #9fe8f7;
+  --template-deep: #2368a9;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Baloo 2", "Comic Sans MS", "Nunito", Arial, sans-serif;
+  font-weight: 500;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 14% 12%, rgba(255,255,255,.92) 0 34px, transparent 35px),
+    radial-gradient(circle at 60% 8%, rgba(255,255,255,.82) 0 28px, transparent 29px),
+    linear-gradient(180deg, #c8f3fb 0%, #a7e8f4 54%, #86dbe8 100%);
+}
+a { color: inherit; }
+.page-shell { min-height: 100vh; isolation: isolate; }
+.page-shell::after,
+.test-shell::after {
+  content: "";
+  position: fixed;
+  left: -4vw;
+  right: -4vw;
+  bottom: -3vh;
+  height: 16vh;
+  background:
+    radial-gradient(80% 110% at 20% 0%, rgba(30,176,163,.9) 0 58%, transparent 59%),
+    radial-gradient(80% 110% at 75% 0%, rgba(26,154,181,.9) 0 58%, transparent 59%);
+  pointer-events: none;
+  z-index: 0;
+}
+.page-shell > *, .test-shell > * { position: relative; z-index: 2; }
+.hero {
+  min-height: 78vh;
+  padding: 44px clamp(22px, 5vw, 78px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, .75fr);
+  gap: 38px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.section, .test-shell { isolation: isolate; }
+.hero::before, .section::before, .test-shell::before {
+  content: "";
+  position: absolute;
+  left: 5vw;
+  bottom: 8vh;
+  width: 54px;
+  height: 128px;
+  border-radius: 22px 22px 4px 4px;
+  background:
+    repeating-linear-gradient(180deg, rgba(255,255,255,.45) 0 12px, transparent 12px 24px),
+    linear-gradient(180deg, #e4c65f, #b9993d);
+  box-shadow:
+    74px 28px 0 -8px #d9bd63,
+    calc(86vw) -10px 0 -6px #d9bd63,
+    calc(90vw) 20px 0 -10px #b9993d;
+  opacity: .6;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero::after, .section::after {
+  content: "";
+  position: absolute;
+  inset: auto -8% -18% auto;
+  width: 36vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero > *, .section > *, .test-shell > * { position: relative; z-index: 2; }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(15,119,119,.14);
+  color: var(--teal);
+  font-weight: 900;
+  letter-spacing: 0;
+}
+h1, h2, h3 {
+  letter-spacing: 0;
+  margin: 0;
+  font-family: "Nunito", "Baloo 2", Arial, sans-serif;
+  font-weight: 900;
+}
+h1 {
+  max-width: 920px;
+  font-size: clamp(46px, 6vw, 84px);
+  line-height: .98;
+  color: #0c6f6c;
+}
+.hero-copy {
+  max-width: 820px;
+  margin: 22px 0 0;
+  font-size: clamp(20px, 2vw, 30px);
+  line-height: 1.35;
+  font-weight: 700;
+}
+.hero-panel {
+  background: rgba(255,247,237,.94);
+  border: 4px solid rgba(45,100,160,.28);
+  border-radius: 8px;
+  padding: 22px;
+  box-shadow: 0 20px 44px rgba(13,82,94,.18);
+}
+.hero-panel h2 { font-size: 26px; color: var(--blue); margin-bottom: 12px; }
+.quick-links, .button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #3d7fc4, #265f9f);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 900;
+  border: 0;
+  cursor: pointer;
+}
+.button.secondary { background: var(--teal-2); }
+.button.light { background: #fff; color: var(--teal); border: 2px solid rgba(15,119,119,.32); }
+.section {
+  position: relative;
+  padding: 54px clamp(18px, 4vw, 70px);
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: end;
+  margin-bottom: 24px;
+}
+.section h2 { font-size: clamp(32px, 4vw, 54px); color: var(--teal); }
+.section-note { max-width: 760px; color: var(--muted); font-size: 19px; font-weight: 700; line-height: 1.45; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(210px, 1fr));
+  gap: 16px;
+}
+.day-card {
+  background: rgba(255,255,255,.86);
+  border: 3px solid rgba(15,119,119,.25);
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 12px 28px rgba(23,49,59,.12);
+}
+.day-card h3 { font-size: 24px; color: var(--blue); margin-bottom: 8px; }
+.day-card p, .day-card li { font-size: 16px; line-height: 1.38; }
+.duration {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #fff1a7;
+  color: #8a5700;
+  font-weight: 900;
+  margin: 10px 0;
+}
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+.resource-block {
+  background: rgba(255,247,237,.92);
+  border: 2px solid rgba(45,100,160,.22);
+  border-radius: 8px;
+  padding: 18px;
+}
+.resource-block h3 { font-size: 22px; color: var(--teal); margin-bottom: 10px; }
+.mini-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,.9);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.mini-table th, .mini-table td {
+  border: 2px solid rgba(15,119,119,.25);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+  font-size: clamp(13px, 1.05vw, 16px);
+  line-height: 1.18;
+}
+.mini-table th { background: #167b78; color: white; }
+.footer {
+  padding: 26px clamp(18px, 4vw, 70px) 44px;
+  color: var(--muted);
+  font-weight: 800;
+}
+.deck-body {
+  background: #dff5f5;
+  overflow: hidden;
+}
+.deck-nav {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 20;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: rgba(255,255,255,.85);
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.16);
+}
+.deck-nav button {
+  border: 0;
+  border-radius: 8px;
+  background: var(--blue);
+  color: white;
+  width: 42px;
+  height: 38px;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.slide-counter { min-width: 68px; text-align: center; font-weight: 900; color: var(--teal); }
+.slide {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  padding: 34px 54px 74px;
+  background:
+    radial-gradient(circle at 54% 8%, rgba(255,255,255,.95) 0 28px, transparent 29px),
+    radial-gradient(circle at 58% 9%, rgba(255,255,255,.85) 0 22px, transparent 23px),
+    radial-gradient(circle at 50% 10%, rgba(255,255,255,.9) 0 20px, transparent 21px),
+    linear-gradient(180deg, #c8f3fb 0%, #a9ebf5 58%, #83dbe9 100%);
+  position: relative;
+  overflow: hidden;
+}
+.slide::before {
+  content: "";
+  position: absolute;
+  left: -5vw;
+  right: -5vw;
+  bottom: -4vh;
+  height: 17vh;
+  background:
+    radial-gradient(80% 120% at 18% 0%, rgba(35,185,170,.92) 0 56%, transparent 57%),
+    radial-gradient(80% 120% at 72% 0%, rgba(33,155,188,.9) 0 56%, transparent 57%);
+  z-index: 0;
+}
+.slide::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  bottom: 10vh;
+  width: 58px;
+  height: 128px;
+  border-radius: 22px 22px 4px 4px;
+  background:
+    repeating-linear-gradient(180deg, rgba(255,255,255,.48) 0 11px, transparent 11px 24px),
+    linear-gradient(180deg, #e4c65f, #a98e3b);
+  box-shadow:
+    74px 28px 0 -8px #d9bd63,
+    calc(100vw - 170px) -6px 0 -6px #d9bd63,
+    calc(100vw - 104px) 30px 0 -12px #a98e3b;
+  opacity: .68;
+  z-index: 0;
+}
+.slide > * { position: relative; z-index: 1; }
+.slide.active { display: grid; }
+.slide.layout-title {
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, .72fr);
+  align-items: center;
+  gap: 36px;
+}
+.slide.layout-content { grid-template-rows: auto minmax(0, 1fr); gap: 18px; }
+.slide-kicker {
+  font-size: 20px;
+  color: var(--blue);
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+.slide h1 { font-size: clamp(48px, 6.2vw, 82px); color: #0b716e; }
+.slide h2 { font-size: clamp(34px, 4vw, 58px); color: #0b716e; }
+.subtitle {
+  font-size: clamp(21px, 2vw, 30px);
+  line-height: 1.24;
+  font-weight: 600;
+  margin-top: 14px;
+}
+.tag-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.tag {
+  display: inline-flex;
+  padding: 9px 13px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: #633f00;
+  font-weight: 900;
+  font-size: 18px;
+}
+.slide-panel, .note-box, .image-card {
+  background: rgba(255,247,237,.94);
+  border: 4px solid rgba(45,100,160,.25);
+  border-radius: 8px;
+  box-shadow: 0 14px 32px rgba(23,49,59,.13);
+}
+.slide-panel { padding: 20px 22px; }
+.slide-panel h3 { font-size: 27px; color: var(--blue); margin-bottom: 10px; }
+.slide-panel p, .slide-panel li {
+  font-size: clamp(21px, 1.75vw, 27px);
+  line-height: 1.23;
+  font-weight: 500;
+}
+.slide-panel ul { margin: 0; padding-left: 26px; }
+.two-col {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.note-box {
+  padding: 18px 20px;
+  background: #2767a5;
+  color: white;
+}
+.note-box h3 { color: white; font-size: 28px; margin-bottom: 10px; }
+.note-box li, .note-box p { font-size: 21px; line-height: 1.28; font-weight: 600; }
+.image-card {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+.time-chip {
+  position: absolute;
+  top: 26px;
+  right: 34px;
+  background: linear-gradient(180deg, #ffe47a, #ffbf44);
+  color: #674100;
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 18px;
+}
+.big-list {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  min-height: 0;
+}
+.big-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+  background: rgba(255,247,237,.94);
+  border: 3px solid rgba(45,100,160,.18);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: clamp(21px, 1.75vw, 28px);
+  line-height: 1.22;
+  font-weight: 500;
+}
+.num-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: white;
+  font-weight: 1000;
+}
+.worksheet-page {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.worksheet-list { position: sticky; top: 10px; display: grid; gap: 8px; }
+.worksheet-preview {
+  background: rgba(255,255,255,.86);
+  border: 2px solid rgba(15,119,119,.22);
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 18px;
+}
+.worksheet-preview img { width: 100%; display: block; border-radius: 6px; }
+.wheel-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(280px, 520px) minmax(300px, 1fr);
+  gap: 34px;
+  align-items: center;
+  padding: 42px;
+}
+.embed-mode .wheel-page {
+  height: 100vh;
+  min-height: 0;
+  grid-template-columns: .9fr 1fr;
+  gap: 14px;
+  padding: 16px;
+  overflow: hidden;
+}
+.embed-mode .wheel-page h1 {
+  font-size: clamp(28px, 3.9vw, 46px);
+  line-height: .96;
+}
+.embed-mode .wheel-page .hero-copy {
+  font-size: clamp(13px, 1.3vw, 16px);
+  line-height: 1.16;
+  margin-top: 6px;
+}
+.embed-mode .wheel-page .result-box:last-of-type {
+  display: none;
+}
+.embed-mode .wheel-wrap {
+  width: min(42vw, 340px, calc(100vh - 36px));
+}
+.embed-mode .result-box {
+  padding: 10px;
+}
+.embed-mode .result-text {
+  font-size: 26px;
+  margin: 6px 0 8px;
+}
+.embed-mode .eyebrow {
+  font-size: 12px;
+  padding: 8px 12px;
+}
+.embed-mode .button {
+  font-size: 13px;
+  padding: 10px 14px;
+}
+.wheel-wrap { position: relative; width: min(80vw, 520px); aspect-ratio: 1; margin: auto; }
+#wheelCanvas { width: 100%; height: 100%; filter: drop-shadow(0 18px 34px rgba(19,84,94,.25)); }
+.pointer {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  width: 0;
+  height: 0;
+  border-top: 24px solid transparent;
+  border-bottom: 24px solid transparent;
+  border-left: 44px solid #17313b;
+}
+.result-box {
+  background: white;
+  border: 4px solid rgba(15,119,119,.28);
+  border-radius: 8px;
+  padding: 24px;
+}
+.result-text { font-size: 52px; color: var(--teal); font-weight: 1000; margin: 12px 0 18px; }
+.prep-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.prep-card {
+  background: rgba(255,247,237,.94);
+  border: 3px solid rgba(45,100,160,.23);
+  border-radius: 8px;
+  padding: 16px 18px;
+  min-height: 130px;
+}
+.prep-card h3 {
+  color: var(--blue);
+  font-size: 27px;
+  margin-bottom: 8px;
+}
+.prep-card p {
+  margin: 0;
+  font-size: clamp(21px, 1.7vw, 27px);
+  line-height: 1.2;
+  font-weight: 500;
+}
+.example-box {
+  background: #fff7cf;
+  border: 3px solid rgba(255,159,28,.42);
+  border-radius: 8px;
+  padding: 18px 20px;
+}
+.example-box h3 {
+  color: #945c00;
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+.source-note {
+  position: absolute;
+  left: 54px;
+  bottom: 22px;
+  max-width: calc(100% - 108px);
+  color: #5b6f78;
+  font-size: 15px;
+  font-weight: 800;
+}
+.mission-board {
+  background: rgba(255,247,237,.94);
+  border: 4px solid rgba(45,100,160,.25);
+  border-radius: 8px;
+  padding: 22px;
+  box-shadow: 0 14px 32px rgba(23,49,59,.13);
+}
+.mission-board h3 {
+  color: var(--blue);
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+.mission-board ul {
+  margin: 0;
+  padding-left: 24px;
+}
+.mission-board li {
+  font-size: clamp(21px, 1.7vw, 28px);
+  line-height: 1.22;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.teacher-window {
+  display: grid;
+  grid-template-columns: .72fr 1fr;
+  gap: 18px;
+  align-items: stretch;
+  min-height: 0;
+}
+.teacher-menu {
+  max-width: 1120px;
+  margin: 14px auto;
+  border: 3px solid rgba(23,49,59,.28);
+  border-radius: 8px;
+  background: rgba(255,253,248,.96);
+  box-shadow: 0 10px 22px rgba(23,49,59,.10);
+  overflow: hidden;
+}
+.teacher-menu summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 16px;
+  background: #17313b;
+  color: #ffcf5c;
+  cursor: pointer;
+  font-family: "Nunito", "Baloo 2", Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+.teacher-menu summary::-webkit-details-marker { display: none; }
+.teacher-menu summary::after {
+  content: "Buka/Tutup";
+  color: white;
+  font-size: 13px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.18);
+}
+.teacher-menu ul {
+  margin: 0;
+  padding: 16px 22px 18px 38px;
+}
+.teacher-menu li {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.34;
+  font-weight: 600;
+}
+.teacher-menu p {
+  margin: 0;
+  padding: 16px 20px;
+  font-size: 18px;
+  line-height: 1.38;
+  font-weight: 600;
+}
+.slide .teacher-menu {
+  max-width: none;
+  margin: 0;
+}
+.slide .teacher-menu summary {
+  font-size: 26px;
+  padding: 16px 20px;
+}
+.slide .teacher-menu li {
+  font-size: clamp(20px, 1.55vw, 25px);
+  line-height: 1.22;
+}
+.embed-mode .teacher-menu { display: none; }
+.teacher-alert {
+  background: #17313b;
+  color: white;
+  border-radius: 8px;
+  padding: 22px;
+  border: 4px solid rgba(255,255,255,.5);
+}
+.teacher-alert h3 {
+  color: #ffcf5c;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.teacher-alert p {
+  font-size: clamp(21px, 1.7vw, 28px);
+  line-height: 1.24;
+  font-weight: 600;
+  margin: 0;
+}
+.teacher-note-list {
+  display: grid;
+  gap: 10px;
+  min-height: 0;
+}
+.teacher-note-item {
+  background: rgba(255,255,255,.92);
+  border: 3px solid rgba(23,49,59,.18);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: clamp(20px, 1.6vw, 26px);
+  line-height: 1.2;
+  font-weight: 500;
+}
+.test-shell {
+  min-height: 100vh;
+  padding: 36px clamp(16px, 4vw, 64px);
+  position: relative;
+  background:
+    radial-gradient(circle at 18% 10%, rgba(255,255,255,.9) 0 30px, transparent 31px),
+    linear-gradient(180deg, #c8f3fb 0%, #a9ebf5 58%, #83dbe9 100%);
+}
+.test-card {
+  max-width: 980px;
+  margin: 0 auto 16px;
+  background: rgba(255,247,237,.94);
+  border: 3px solid rgba(45,100,160,.26);
+  border-radius: 8px;
+  padding: 22px;
+  box-shadow: 0 14px 30px rgba(23,49,59,.12);
+}
+.test-form-shell {
+  display: block;
+}
+.test-landing {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, .76fr);
+  gap: 22px;
+  align-items: start;
+}
+.test-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  background: #fff1a7;
+  color: #735000;
+  font-weight: 900;
+}
+.test-hero-panel {
+  background: #ffffff;
+  border: 3px solid rgba(15,119,119,.22);
+  border-radius: 8px;
+  padding: 18px;
+}
+.test-hero-panel h2 {
+  color: var(--blue);
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.test-steps {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.test-steps li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  align-items: start;
+  font-size: 19px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+.test-steps span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: white;
+  font-weight: 900;
+}
+.test-entry-grid {
+  margin-top: 18px;
+  grid-template-columns: 1fr;
+}
+.hidden { display: none !important; }
+.quiz-card {
+  max-width: 1040px;
+}
+.quiz-topline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.quiz-pill {
+  display: inline-flex;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #fff1a7;
+  color: #735000;
+  font-weight: 900;
+}
+.quiz-progress {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin: 14px 0 18px;
+}
+.quiz-dot {
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--teal-2), var(--yellow));
+}
+.quiz-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 18px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.form-grid.test-entry-grid {
+  grid-template-columns: 1fr;
+}
+.field label {
+  display: block;
+  color: var(--blue);
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.field input, .field select {
+  width: 100%;
+  min-height: 48px;
+  border: 2px solid rgba(15,119,119,.32);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: 600 19px "Baloo 2", "Comic Sans MS", Arial, sans-serif;
+  color: var(--ink);
+  background: #fff;
+}
+.question-card {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 2px dashed rgba(15,119,119,.22);
+}
+.question-card h3 { color: var(--teal); font-size: 24px; }
+.option-label {
+  display: block;
+  padding: 10px 12px;
+  border: 2px solid rgba(15,119,119,.18);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 19px;
+  font-weight: 500;
+}
+.option-label input { margin-right: 8px; }
+.status-box {
+  display: none;
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 900;
+}
+.status-box.ok { display: block; background: #dff8da; color: #246326; }
+.status-box.warn { display: block; background: #fff2ba; color: #7a5100; }
+.status-box.err { display: block; background: #ffe0dc; color: #8d2b1c; }
+.results-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  gap: 14px;
+  max-width: 1120px;
+  margin: 0 auto 16px;
+}
+.metric-card {
+  background: rgba(255,247,237,.94);
+  border: 3px solid rgba(45,100,160,.24);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 12px 26px rgba(23,49,59,.12);
+}
+.metric-card strong {
+  display: block;
+  color: var(--teal);
+  font-size: 34px;
+  line-height: 1;
+}
+.metric-card span {
+  color: var(--muted);
+  font-weight: 700;
+}
+.filter-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 12px;
+}
+.results-table-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+.results-table {
+  width: 100%;
+  min-width: 940px;
+  border-collapse: collapse;
+  background: rgba(255,247,237,.96);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 12px 26px rgba(23,49,59,.12);
+}
+.results-table th, .results-table td {
+  border: 2px solid rgba(45,100,160,.15);
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 15px;
+}
+.results-table th {
+  background: #2d64a0;
+  color: #fff;
+}
+.spin-slide-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 430px;
+  gap: 18px;
+  min-height: 0;
+}
+.spin-embed {
+  background: rgba(255,247,237,.94);
+  border: 4px solid rgba(45,100,160,.25);
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 0;
+  box-shadow: 0 14px 32px rgba(23,49,59,.13);
+}
+.spin-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+}
+@media (max-width: 980px) {
+  .hero, .cards, .two-col, .three-col, .worksheet-page, .wheel-page, .prep-grid, .form-grid, .results-summary, .filter-row, .spin-slide-grid, .test-landing, .teacher-window { grid-template-columns: 1fr; }
+  .slide { overflow: auto; height: auto; min-height: 100vh; }
+}
+@media print {
+  @page { size: 16in 9in; margin: 0; }
+  body.deck-body { background: white; }
+  .deck-nav { display: none; }
+  .slide { display: grid !important; width: 16in; height: 9in; page-break-after: always; overflow: hidden; }
+}
+
+
+/* Toys & Craft online deck refinements */
+.deck-body .slide {
+  padding: 32px 54px 86px;
+}
+.deck-body .slide.layout-content {
+  gap: 14px;
+}
+.deck-body .slide-kicker {
+  font-size: 18px;
+}
+.deck-body .slide h1 {
+  font-size: clamp(46px, 5.5vw, 74px);
+  line-height: .98;
+}
+.deck-body .slide h2 {
+  font-size: clamp(32px, 3.55vw, 50px);
+  line-height: 1.02;
+}
+.deck-body .subtitle {
+  font-size: clamp(18px, 1.55vw, 24px);
+  line-height: 1.3;
+  font-weight: 500;
+}
+.deck-body .slide-panel {
+  padding: 18px 20px;
+}
+.deck-body .slide-panel h3,
+.deck-body .prep-card h3,
+.deck-body .mission-board h3 {
+  font-size: clamp(23px, 1.9vw, 29px);
+  line-height: 1.08;
+}
+.deck-body .slide-panel p,
+.deck-body .slide-panel li,
+.deck-body .prep-card p,
+.deck-body .mission-board li,
+.deck-body .big-item,
+.deck-body .teacher-alert p,
+.deck-body .teacher-note-item {
+  font-size: clamp(18px, 1.38vw, 23px);
+  line-height: 1.31;
+  font-weight: 500;
+}
+.deck-body .big-list {
+  gap: 8px;
+}
+.deck-body .big-item {
+  padding: 10px 14px;
+}
+.deck-body .num-dot {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+}
+.deck-body .prep-card {
+  min-height: 110px;
+}
+.deck-body .mini-table th,
+.deck-body .mini-table td {
+  font-size: clamp(15px, 1.12vw, 19px);
+  line-height: 1.25;
+  font-weight: 500;
+}
+.deck-body .mini-table th {
+  font-weight: 800;
+}
+.deck-body .time-chip {
+  font-size: 16px;
+  padding: 8px 13px;
+}
+.slide .teacher-menu.slide-note {
+  position: absolute;
+  left: 54px;
+  bottom: 24px;
+  width: min(620px, calc(100% - 190px));
+  max-width: none;
+  margin: 0;
+  z-index: 4;
+  box-shadow: 0 8px 20px rgba(23,49,59,.16);
+}
+.slide .teacher-menu.slide-note[open] {
+  width: min(760px, calc(100% - 190px));
+}
+.slide .teacher-menu.slide-note summary {
+  font-size: 15px;
+  padding: 8px 12px;
+}
+.slide .teacher-menu.slide-note summary::after {
+  font-size: 11px;
+  padding: 4px 8px;
+}
+.slide .teacher-menu.slide-note ul {
+  padding: 10px 18px 12px 32px;
+}
+.slide .teacher-menu.slide-note li {
+  font-size: 14px;
+  line-height: 1.28;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.photo-template {
+  display: grid;
+  grid-template-columns: .92fr 1.08fr;
+  gap: 20px;
+  align-items: stretch;
+  min-height: 0;
+}
+.photo-frame {
+  background: #fffdf8;
+  border: 5px solid rgba(45,100,160,.24);
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 14px 32px rgba(23,49,59,.13);
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+.photo-frame strong {
+  display: block;
+  color: #0b716e;
+  font-size: clamp(26px, 2.7vw, 38px);
+  line-height: 1.05;
+}
+.photo-frame span {
+  display: block;
+  color: #2c62a0;
+  font-size: clamp(18px, 1.5vw, 24px);
+  line-height: 1.25;
+  margin-top: 12px;
+}
+@media print {
+  .slide .teacher-menu.slide-note { display: none; }
+  .deck-body .slide { padding-bottom: 74px; }
+}
+</style>
+</head>
+<body class="">
+
+<div class="page-shell">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Mathpreneurs Online - Little Craftpreneurs</p>
+      <h1>Teaching Kit Online Toys &amp; Craft</h1>
+      <p class="hero-copy">Paket bahan ajar untuk 5 pertemuan online, masing-masing 60 menit. Guru dapat membuka deck, PDF cadangan, pre-test, post-test, kunci jawaban, worksheet, spin wheel, dashboard hasil, rubrik, dan template final presentation dari satu halaman.</p>
+      <div class="tag-row"><span class='tag'>5 Pertemuan</span><span class='tag'>60 Menit</span><span class='tag'>Google Meet / Zoom</span></div>
+      
+<details class="teacher-menu">
+  <summary>CATATAN GURU</summary>
+  <ul><li>Hub ini untuk guru. Buka link sesuai pertemuan, lalu share screen hanya pada deck atau halaman yang diperlukan siswa.</li><li>Sebelum kelas, admin/guru bisa mengedit pilihan Cabang dan Nama Teacher di test-config.js.</li><li>Saat pre/post test, guru wajib mengecek dashboard hasil dan memastikan nama siswa sudah muncul.</li><li>Siswa perlu print worksheet sebelum kelas online dimulai.</li></ul>
+</details>
+
+    </div>
+    <div class="hero-panel">
+      <h2>Akses Cepat</h2>
+      <div class="quick-links"><a class="button light" href="#pertemuan-1">Day 1</a><a class="button light" href="#pertemuan-2">Day 2</a><a class="button light" href="#pertemuan-3">Day 3</a><a class="button light" href="#pertemuan-4">Day 4</a><a class="button light" href="#pertemuan-5">Day 5</a></div>
+      <div style="height:14px"></div>
+      <div class="quick-links">
+        <a class="button" href="worksheet-online.html">Worksheet Viewer</a>
+        <a class="button secondary" href="worksheet-online.pdf" target="_blank" rel="noopener">PDF Worksheet</a>
+        <a class="button" href="spin-wheel-day1.html">Spin Wheel Day 1</a>
+        <a class="button" href="spreadsheet-setup.html">Panduan Hasil Test</a>
+        <a class="button" href="results-dashboard.html">Hasil Test</a>
+        <a class="button secondary" href="rubrik-final-presentasi.pdf" target="_blank" rel="noopener">Rubrik Final</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Overview Program</p>
+        <h2>Alur 5 Pertemuan Online</h2>
+      </div>
+      <p class="section-note">Program dimulai dari ide produk craft, lanjut brand, modal dan harga, packaging dan sales script, lalu ditutup dengan final presentation.</p>
+    </div>
+    <div class="cards">
+<article class="day-card" id="pertemuan-1">
+  <h3>Day 1: Learn &amp; Ideation</h3>
+  <p><strong>Kenalan, Worksheet 1, Worksheet 2</strong></p>
+  <span class="duration">60 menit</span>
+  <p>Siswa berkenalan sebagai Little Craftpreneurs, memilih bahan utama melalui spin wheel digital, lalu membuat ide produk dan mengenali calon pembeli.</p>
+  <ul><li>Worksheet 1 - Product Explorer</li><li>Worksheet 2 - Customer Detective</li></ul>
+  <p><strong>Output:</strong> Bahan utama, beberapa ide produk, 1 ide terbaik, dan profil calon pembeli.</p>
+  <div class="button-row">
+    <a class="button" href="pertemuan-1-teacher-deck.html">Deck Guru</a>
+    <a class="button secondary" href="pertemuan-1-teacher-deck.pdf" target="_blank" rel="noopener">PDF Deck</a>
+    <a class="button" href="pre-test-day1.html">Pre Test Online</a>
+    <a class="button" href="post-test-day1.html">Post Test Online</a>
+    <a class="button light" href="pre-test-1.pdf" target="_blank" rel="noopener">PDF Pre</a>
+    <a class="button light" href="post-test-1.pdf" target="_blank" rel="noopener">PDF Post</a>
+    <a class="button light" href="kunci-jawaban-1.pdf" target="_blank" rel="noopener">Kunci</a>
+  </div>
+</article>
+<article class="day-card" id="pertemuan-2">
+  <h3>Day 2: Brand &amp; Product Planning</h3>
+  <p><strong>Worksheet 3, sharing, PR Diskusi 1</strong></p>
+  <span class="duration">60 menit</span>
+  <p>Siswa membuat identitas produk: nama produk, nama brand, slogan, logo, dan konsep kemasan. Siswa lalu sharing ide dan mendapat tugas diskusi di rumah.</p>
+  <ul><li>Worksheet 3 - Brand Creator</li><li>PR Diskusi 1</li></ul>
+  <p><strong>Output:</strong> Nama produk, brand, slogan, logo, konsep kemasan, dan daftar bahan awal untuk didiskusikan di rumah.</p>
+  <div class="button-row">
+    <a class="button" href="pertemuan-2-teacher-deck.html">Deck Guru</a>
+    <a class="button secondary" href="pertemuan-2-teacher-deck.pdf" target="_blank" rel="noopener">PDF Deck</a>
+    <a class="button" href="pre-test-day2.html">Pre Test Online</a>
+    <a class="button" href="post-test-day2.html">Post Test Online</a>
+    <a class="button light" href="pre-test-2.pdf" target="_blank" rel="noopener">PDF Pre</a>
+    <a class="button light" href="post-test-2.pdf" target="_blank" rel="noopener">PDF Post</a>
+    <a class="button light" href="kunci-jawaban-2.pdf" target="_blank" rel="noopener">Kunci</a>
+  </div>
+</article>
+<article class="day-card" id="pertemuan-3">
+  <h3>Day 3: Costing &amp; Pricing</h3>
+  <p><strong>Worksheet 4, Worksheet 5</strong></p>
+  <span class="duration">60 menit</span>
+  <p>Siswa mencatat kebutuhan produk, menghitung total modal, modal per produk, harga jual, dan untung per produk dengan angka sederhana.</p>
+  <ul><li>Worksheet 4 - Budget Master</li><li>Worksheet 5 - Pricing Expert</li></ul>
+  <p><strong>Output:</strong> Total modal, jumlah produk, modal per produk, harga jual, dan untung per produk.</p>
+  <div class="button-row">
+    <a class="button" href="pertemuan-3-teacher-deck.html">Deck Guru</a>
+    <a class="button secondary" href="pertemuan-3-teacher-deck.pdf" target="_blank" rel="noopener">PDF Deck</a>
+    <a class="button" href="pre-test-day3.html">Pre Test Online</a>
+    <a class="button" href="post-test-day3.html">Post Test Online</a>
+    <a class="button light" href="pre-test-3.pdf" target="_blank" rel="noopener">PDF Pre</a>
+    <a class="button light" href="post-test-3.pdf" target="_blank" rel="noopener">PDF Post</a>
+    <a class="button light" href="kunci-jawaban-3.pdf" target="_blank" rel="noopener">Kunci</a>
+  </div>
+</article>
+<article class="day-card" id="pertemuan-4">
+  <h3>Day 4: Launch Preparation</h3>
+  <p><strong>Worksheet 6, Sales Champion, PR Production Planner</strong></p>
+  <span class="duration">60 menit</span>
+  <p>Siswa merancang kemasan, label, slogan, poster promosi, lalu menulis script jualan dan menyiapkan rencana produksi di rumah.</p>
+  <ul><li>Worksheet 6 - Packaging and Advertising Studio</li><li>Sales Champion</li><li>PR Production Planner</li></ul>
+  <p><strong>Output:</strong> Konsep kemasan/promosi, sales script, checklist praktik, dan rencana produksi rumah.</p>
+  <div class="button-row">
+    <a class="button" href="pertemuan-4-teacher-deck.html">Deck Guru</a>
+    <a class="button secondary" href="pertemuan-4-teacher-deck.pdf" target="_blank" rel="noopener">PDF Deck</a>
+    <a class="button" href="pre-test-day4.html">Pre Test Online</a>
+    <a class="button" href="post-test-day4.html">Post Test Online</a>
+    <a class="button light" href="pre-test-4.pdf" target="_blank" rel="noopener">PDF Pre</a>
+    <a class="button light" href="post-test-4.pdf" target="_blank" rel="noopener">PDF Post</a>
+    <a class="button light" href="kunci-jawaban-4.pdf" target="_blank" rel="noopener">Kunci</a>
+  </div>
+</article>
+<article class="day-card" id="pertemuan-5">
+  <h3>Day 5: Final Presentation &amp; Reflection</h3>
+  <p><strong>Final Presentasi</strong></p>
+  <span class="duration">60 menit</span>
+  <p>Siswa mempresentasikan produk secara online seperti membuka booth digital: nama produk, brand, slogan, logo, kemasan, harga jual, modal, dan alasan produk menarik.</p>
+  <ul><li>Final Presentation - Brand Produkku</li></ul>
+  <p><strong>Output:</strong> Final pitch produk 5-10 menit per siswa, feedback guru, dan refleksi.</p>
+  <div class="button-row">
+    <a class="button" href="pertemuan-5-teacher-deck.html">Deck Guru</a>
+    <a class="button secondary" href="pertemuan-5-teacher-deck.pdf" target="_blank" rel="noopener">PDF Deck</a>
+    <a class="button" href="pre-test-day5.html">Pre Test Online</a>
+    <a class="button" href="post-test-day5.html">Post Test Online</a>
+    <a class="button light" href="pre-test-5.pdf" target="_blank" rel="noopener">PDF Pre</a>
+    <a class="button light" href="post-test-5.pdf" target="_blank" rel="noopener">PDF Post</a>
+    <a class="button light" href="kunci-jawaban-5.pdf" target="_blank" rel="noopener">Kunci</a>
+  </div>
+</article></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><p class="eyebrow">Perlengkapan Tambahan</p><h2>File Pendukung</h2></div></div>
+    <div class="resource-grid">
+      <div class="resource-block"><h3>Worksheet Siswa</h3><p>Berisi cover, prolog, Worksheet 1-6, Sales Champion, Production Planner, Final Presentation, dan closing.</p><div class="button-row"><a class="button " href="worksheet-online.html">Buka HTML</a><a class="button secondary" href="worksheet-online.pdf">Buka PDF</a></div></div>
+      <div class="resource-block"><h3>Final Presentation</h3><p>Template tugas akhir siswa untuk menampilkan produk/foto produk, brand, slogan, logo, kemasan, harga, dan modal.</p><div class="button-row"><a class="button " href="final-presentation-template.html">Buka Template</a><a class="button secondary" href="final-presentation-template.pdf">PDF Template</a></div></div>
+      <div class="resource-block"><h3>Rubrik Guru</h3><p>Rubrik feedback final presentation yang bisa dipakai guru online saat showcase Day 5.</p><div class="button-row"><a class="button " href="rubrik-final-presentasi.html">Buka Rubrik</a><a class="button secondary" href="rubrik-final-presentasi.pdf">PDF Rubrik</a></div></div>
+      <div class="resource-block"><h3>Pre/Post Test Online</h3><p>Halaman test web untuk siswa. Hasil otomatis masuk ke dashboard online dan bisa diekspor CSV untuk Google Sheets atau Excel.</p><div class="button-row"><a class="button " href="spreadsheet-setup.html">Panduan Hasil</a><a class="button " href="results-dashboard.html">Hasil Test</a><a class="button secondary" href="test-config.js">Edit Cabang &amp; Teacher</a></div></div>
+      <div class="resource-block"><h3>Bank Soal</h3><p>Rekap semua soal pre-test, post-test, dan kunci untuk Day 1-5.</p><div class="button-row"><a class="button " href="question-bank.html">Buka Bank Soal</a><a class="button secondary" href="manifest.json">Manifest</a></div></div>
+    </div>
+  </section>
+  <footer class="footer">Math Champs Holiday Program Online Toys & Craft - preview lokal.</footer>
+</div>
+
+</body>
+</html>
