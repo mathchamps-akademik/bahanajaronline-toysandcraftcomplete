@@ -1460,6 +1460,85 @@ h1 {
   font-weight: 500;
   margin: 6px 0 0;
 }
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.glossary-card {
+  background: rgba(255,253,248,.96);
+  border: 4px solid rgba(45,100,160,.22);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 28px rgba(23,49,59,.12);
+}
+.glossary-card strong {
+  display: block;
+  color: #0b716e;
+  font-size: clamp(25px, 2vw, 34px);
+  line-height: 1.05;
+  margin-bottom: 8px;
+}
+.glossary-card span {
+  display: block;
+  color: #17313b;
+  font-size: clamp(18px, 1.35vw, 23px);
+  line-height: 1.3;
+  font-weight: 500;
+}
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.level-card {
+  background: rgba(255,247,237,.97);
+  border: 4px solid rgba(255,159,28,.44);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 26px rgba(23,49,59,.12);
+}
+.level-card strong {
+  display: block;
+  color: #b43d2d;
+  font-size: clamp(24px, 1.9vw, 32px);
+  line-height: 1.05;
+  margin-bottom: 10px;
+}
+.level-card span {
+  display: block;
+  color: #17313b;
+  font-size: clamp(18px, 1.32vw, 23px);
+  line-height: 1.28;
+  font-weight: 600;
+}
+.worksheet-steps {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+.worksheet-step {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  background: rgba(255,253,248,.94);
+  border: 3px solid rgba(15,119,119,.18);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: clamp(17px, 1.25vw, 21px);
+  line-height: 1.22;
+  font-weight: 600;
+}
+.worksheet-step b {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #2c62a0;
+  color: white;
+}
 .deck-body .spin-slide-grid {
   grid-template-columns: minmax(0, 1fr) 360px;
   gap: 14px;
@@ -1778,11 +1857,33 @@ h1 {
 
 <section class="slide layout-content">
 <span class="time-chip">Day 1</span>
+  <div><p class="slide-kicker">Untuk Kelas Kecil</p><h2>Cara Belajar Kita Hari Ini</h2><p class="subtitle">Kalau ada hitungan yang terasa sulit, kita boleh belajar pelan-pelan.</p></div><div class='level-grid'><article class='level-card'><strong>Mudah Dulu</strong><span>Kita mulai dari nominal sederhana seperti Rp10.000, Rp5.000, atau 2 produk.</span></article><article class='level-card'><strong>Pakai Bantuan</strong><span>Boleh pakai gambar, coretan, benda kecil, atau kalkulator bersama guru.</span></article><article class='level-card'><strong>Paham Konsep</strong><span>Yang penting tahu angka itu asalnya dari mana dan dipakai untuk apa.</span></article></div>
+
+<details class="teacher-menu slide-note">
+  <summary>CATATAN GURU</summary>
+  <ul><li>Slide ini membantu guru menurunkan kecemasan siswa kelas kecil sebelum masuk materi.</li><li>Tekankan bahwa memakai kalkulator atau gambar bukan curang; itu alat bantu belajar.</li><li>Jika siswa sudah kuat, guru boleh memberi challenge tambahan setelah contoh mudah selesai.</li></ul>
+</details>
+
+</section>
+
+<section class="slide layout-content">
+<span class="time-chip">Day 1</span>
   <div><p class="slide-kicker">Learn &amp; Ideation</p><h2>Apa Itu Craftpreneurs?</h2><p class="subtitle">Craftpreneurs adalah belajar membuat produk kreatif sambil memakai matematika sederhana.</p></div><div class="big-list"><div class='big-item'><span class='num-dot'>1</span><span>Kita punya produk: karya craft yang ingin dibuat dan ditawarkan.</span></div><div class='big-item'><span class='num-dot'>2</span><span>Kita punya pembeli: orang yang mungkin tertarik.</span></div><div class='big-item'><span class='num-dot'>3</span><span>Kita punya harga: nominal uang yang dibayar pembeli.</span></div><div class='big-item'><span class='num-dot'>4</span><span>Matematika dipakai untuk memilih, membandingkan, menghitung modal, dan menentukan harga.</span></div></div>
 
 <details class="teacher-menu slide-note">
   <summary>CATATAN GURU</summary>
   <ul><li>Fokus slide: Apa Itu Craftpreneurs?. Jelaskan dengan kalimat pendek, lalu beri ruang siswa menjawab.</li><li>Gunakan contoh dari produk craft siswa agar penjelasan terasa dekat.</li><li>Ajak 1-2 siswa menjawab cepat lewat chat atau suara sebelum lanjut.</li></ul>
+</details>
+
+</section>
+
+<section class="slide layout-content">
+<span class="time-chip">Day 1</span>
+  <div><p class="slide-kicker">Kata Penting</p><h2>Kata Bisnis yang Akan Sering Muncul</h2><p class="subtitle">Kenali dulu artinya dengan bahasa sederhana.</p></div><div class='glossary-grid'><article class='glossary-card'><strong>Produk</strong><span>Barang/karya yang dibuat, misalnya stiker nama, gelang beads, atau bookmark.</span></article><article class='glossary-card'><strong>Pembeli</strong><span>Orang yang mungkin tertarik membeli atau memakai produk kita.</span></article><article class='glossary-card'><strong>Brand</strong><span>Nama dan tampilan yang membuat produk mudah diingat.</span></article><article class='glossary-card'><strong>Harga</strong><span>Nominal uang yang dibayar pembeli untuk mendapatkan produk.</span></article></div>
+
+<details class="teacher-menu slide-note">
+  <summary>CATATAN GURU</summary>
+  <ul><li>Fokus slide: Kata Bisnis yang Akan Sering Muncul. Jelaskan dengan kalimat pendek, lalu beri ruang siswa menjawab.</li><li>Tekankan brand bukan harus mewah; yang penting mudah diingat dan sesuai produk.</li></ul>
 </details>
 
 </section>
@@ -1848,15 +1949,15 @@ h1 {
 <span class="time-chip">Day 1</span>
   <div><p class="slide-kicker">Learn &amp; Ideation</p><h2>Contoh Produk Toys &amp; Craft</h2><p class="subtitle">Lihat contoh ini sebagai inspirasi. Pilih produk yang aman dan mudah dibuat di rumah.</p></div><div class='visual-card-grid'>
 <article class="visual-card">
-  <img src="assets/card-sticker.png" alt="Stiker Nama">
+  <img src="card-sticker.png" alt="Stiker Nama">
   <div><h3>Stiker Nama</h3><p>Cocok untuk buku, botol minum, atau kotak pensil.</p></div>
 </article>
 <article class="visual-card">
-  <img src="assets/card-beads.png" alt="Gelang Beads">
+  <img src="card-beads.png" alt="Gelang Beads">
   <div><h3>Gelang Beads</h3><p>Bisa dibuat dengan warna favorit calon pembeli.</p></div>
 </article>
 <article class="visual-card">
-  <img src="assets/card-paper.png" alt="Bookmark">
+  <img src="card-paper.png" alt="Bookmark">
   <div><h3>Bookmark</h3><p>Produk kertas warna yang sederhana dan berguna.</p></div>
 </article></div>
 
@@ -1897,14 +1998,14 @@ h1 {
   <div class="two-col">
     <div class="slide-panel">
       <p>Siswa menulis bahan utama dan membuat beberapa ide produk.</p>
-      <ul><li>Tips siswa: tulis ide sebanyak dulu, pilih yang paling aman dan mudah.</li><li>Contoh stiker: stiker nama, stiker karakter, stiker botol minum.</li><li>Contoh beads: gelang nama, gantungan tas, cincin warna-warni.</li><li>Contoh kertas warna: bookmark, kartu ucapan, hiasan meja.</li></ul>
+      <div class='worksheet-steps'><div class='worksheet-step'><b>1</b><span>Ambil Worksheet 1 yang sudah diprint.</span></div><div class='worksheet-step'><b>2</b><span>Tulis bahan utama dari spin wheel.</span></div><div class='worksheet-step'><b>3</b><span>Tulis 3 ide produk, lalu lingkari 1 ide terbaik.</span></div><div class='worksheet-step'><b>4</b><span>Jika sudah selesai, ketik SIAP di chat.</span></div></div>
     </div>
     <div class="image-card"><img src="worksheet-1-product-explorer.png" alt="Worksheet 1"></div>
   </div>
 
 <details class="teacher-menu slide-note">
   <summary>CATATAN GURU</summary>
-  <ul><li>Fokus slide: Worksheet 1 - Product Explorer. Jelaskan dengan kalimat pendek, lalu beri ruang siswa menjawab.</li><li>Tunjukkan contoh dulu, lalu beri waktu siswa mengisi worksheet masing-masing.</li></ul>
+  <ul><li>Fokus slide: Worksheet 1 - Product Explorer. Jelaskan dengan kalimat pendek, lalu beri ruang siswa menjawab.</li><li>Jika spin wheel bermasalah, pilih bahan secara acak dari tiga pilihan: stiker, manik-manik, atau kertas warna.</li><li>Tunjukkan contoh dulu, lalu beri waktu siswa mengisi worksheet masing-masing.</li></ul>
 </details>
 
 </section>
@@ -1915,7 +2016,12 @@ h1 {
   <div class="two-col">
     <div class="slide-panel">
       <p>Siswa mengenali calon pembeli supaya produk lebih tepat sasaran.</p>
-      <ul><li>Siapa yang mungkin membeli?</li><li>Apa warna/hobi/hal yang disukai?</li><li>Mengapa mereka tertarik dengan produk ini?</li></ul>
+      {worksheet_steps([
+        "Ambil Worksheet 2.",
+        "Tulis calon pembeli: teman, adik/kakak, keluarga, atau guru.",
+        "Tulis hal yang mereka suka, misalnya warna, karakter, atau fungsi produk.",
+        "Tulis alasan produkmu cocok untuk mereka.",
+      ])}
     </div>
     <div class="image-card"><img src="worksheet-2-customer-detective.png" alt="Worksheet 2"></div>
   </div>
@@ -2080,7 +2186,7 @@ h1 {
   <div><p class="slide-kicker">Motivasi</p><h2>Ide Pertamamu Sudah Mulai Jadi Produk</h2><p class="subtitle">Sebelum foto bersama, ingat lagi hal baik yang sudah kamu pelajari.</p></div>
   <div class="motivation-board">
     <div class="motivation-hero">
-      <img class="motivation-img" src="assets/card-paper.png" alt="Ide Pertamamu Sudah Mulai Jadi Produk">
+      <img class="motivation-img" src="card-paper.png" alt="Ide Pertamamu Sudah Mulai Jadi Produk">
       <strong>Dari bahan kecil, lahir ide besar.</strong>
       <span>Hari ini kamu sudah memilih bahan, membuat ide produk, dan memikirkan calon pembeli.</span>
     </div>
@@ -2102,7 +2208,7 @@ h1 {
   <div><p class="slide-kicker">Dokumentasi Kelas</p><h2>Ayo Foto Bersama</h2><p class="subtitle">Buat memori baik dari perjalanan Little Craftpreneurs.</p></div>
   <div class="photo-template">
     <div class="photo-frame">
-      <img src="assets/class-photo-example-day1.png" alt="Contoh dokumentasi kelas online">
+      <img src="class-photo-example-day1.png" alt="Contoh dokumentasi kelas online">
       <div class="photo-badge">Contoh dokumentasi kelas</div>
     </div>
     <div class="photo-checklist">

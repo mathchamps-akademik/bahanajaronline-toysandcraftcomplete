@@ -1460,6 +1460,85 @@ h1 {
   font-weight: 500;
   margin: 6px 0 0;
 }
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.glossary-card {
+  background: rgba(255,253,248,.96);
+  border: 4px solid rgba(45,100,160,.22);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 28px rgba(23,49,59,.12);
+}
+.glossary-card strong {
+  display: block;
+  color: #0b716e;
+  font-size: clamp(25px, 2vw, 34px);
+  line-height: 1.05;
+  margin-bottom: 8px;
+}
+.glossary-card span {
+  display: block;
+  color: #17313b;
+  font-size: clamp(18px, 1.35vw, 23px);
+  line-height: 1.3;
+  font-weight: 500;
+}
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.level-card {
+  background: rgba(255,247,237,.97);
+  border: 4px solid rgba(255,159,28,.44);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 26px rgba(23,49,59,.12);
+}
+.level-card strong {
+  display: block;
+  color: #b43d2d;
+  font-size: clamp(24px, 1.9vw, 32px);
+  line-height: 1.05;
+  margin-bottom: 10px;
+}
+.level-card span {
+  display: block;
+  color: #17313b;
+  font-size: clamp(18px, 1.32vw, 23px);
+  line-height: 1.28;
+  font-weight: 600;
+}
+.worksheet-steps {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+.worksheet-step {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  background: rgba(255,253,248,.94);
+  border: 3px solid rgba(15,119,119,.18);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: clamp(17px, 1.25vw, 21px);
+  line-height: 1.22;
+  font-weight: 600;
+}
+.worksheet-step b {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #2c62a0;
+  color: white;
+}
 .deck-body .spin-slide-grid {
   grid-template-columns: minmax(0, 1fr) 360px;
   gap: 14px;
@@ -1778,6 +1857,17 @@ h1 {
 
 <section class="slide layout-content">
 <span class="time-chip">Day 2</span>
+  <div><p class="slide-kicker">Untuk Kelas Kecil</p><h2>Cara Belajar Kita Hari Ini</h2><p class="subtitle">Kalau ada hitungan yang terasa sulit, kita boleh belajar pelan-pelan.</p></div><div class='level-grid'><article class='level-card'><strong>Mudah Dulu</strong><span>Kita mulai dari nominal sederhana seperti Rp10.000, Rp5.000, atau 2 produk.</span></article><article class='level-card'><strong>Pakai Bantuan</strong><span>Boleh pakai gambar, coretan, benda kecil, atau kalkulator bersama guru.</span></article><article class='level-card'><strong>Paham Konsep</strong><span>Yang penting tahu angka itu asalnya dari mana dan dipakai untuk apa.</span></article></div>
+
+<details class="teacher-menu slide-note">
+  <summary>CATATAN GURU</summary>
+  <ul><li>Slide ini membantu guru menurunkan kecemasan siswa kelas kecil sebelum masuk materi.</li><li>Tekankan bahwa memakai kalkulator atau gambar bukan curang; itu alat bantu belajar.</li><li>Jika siswa sudah kuat, guru boleh memberi challenge tambahan setelah contoh mudah selesai.</li></ul>
+</details>
+
+</section>
+
+<section class="slide layout-content">
+<span class="time-chip">Day 2</span>
   <div><p class="slide-kicker">Brand &amp; Product Planning</p><h2>Apa Itu Brand?</h2><p class="subtitle">Brand membuat produk mudah dikenali dan diingat.</p></div><div class="big-list"><div class='big-item'><span class='num-dot'>1</span><span>Nama produk: nama karya yang dibuat.</span></div><div class='big-item'><span class='num-dot'>2</span><span>Nama brand: nama toko/karya yang mudah diingat.</span></div><div class='big-item'><span class='num-dot'>3</span><span>Slogan: kalimat pendek yang menarik.</span></div><div class='big-item'><span class='num-dot'>4</span><span>Logo: gambar sederhana yang mewakili produk.</span></div></div>
 
 <details class="teacher-menu slide-note">
@@ -2028,7 +2118,7 @@ h1 {
   <div><p class="slide-kicker">Motivasi</p><h2>Brand-mu Mulai Punya Identitas</h2><p class="subtitle">Sebelum foto bersama, ingat lagi hal baik yang sudah kamu pelajari.</p></div>
   <div class="motivation-board">
     <div class="motivation-hero">
-      <img class="motivation-img" src="assets/worksheet-3-brand-creator.png" alt="Brand-mu Mulai Punya Identitas">
+      <img class="motivation-img" src="worksheet-3-brand-creator.png" alt="Brand-mu Mulai Punya Identitas">
       <strong>Nama, logo, dan slogan membuat produkmu mudah diingat.</strong>
       <span>Hari ini kamu sudah membuat identitas produk dan belajar menjelaskan brand-mu.</span>
     </div>
@@ -2050,7 +2140,7 @@ h1 {
   <div><p class="slide-kicker">Dokumentasi Kelas</p><h2>Ayo Foto Bersama</h2><p class="subtitle">Buat memori baik dari perjalanan Little Craftpreneurs.</p></div>
   <div class="photo-template">
     <div class="photo-frame">
-      <img src="assets/class-photo-example-day1.png" alt="Contoh dokumentasi kelas online">
+      <img src="class-photo-example-day1.png" alt="Contoh dokumentasi kelas online">
       <div class="photo-badge">Contoh dokumentasi kelas</div>
     </div>
     <div class="photo-checklist">

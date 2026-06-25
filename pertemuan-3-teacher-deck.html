@@ -1460,6 +1460,85 @@ h1 {
   font-weight: 500;
   margin: 6px 0 0;
 }
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.glossary-card {
+  background: rgba(255,253,248,.96);
+  border: 4px solid rgba(45,100,160,.22);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 28px rgba(23,49,59,.12);
+}
+.glossary-card strong {
+  display: block;
+  color: #0b716e;
+  font-size: clamp(25px, 2vw, 34px);
+  line-height: 1.05;
+  margin-bottom: 8px;
+}
+.glossary-card span {
+  display: block;
+  color: #17313b;
+  font-size: clamp(18px, 1.35vw, 23px);
+  line-height: 1.3;
+  font-weight: 500;
+}
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.level-card {
+  background: rgba(255,247,237,.97);
+  border: 4px solid rgba(255,159,28,.44);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 26px rgba(23,49,59,.12);
+}
+.level-card strong {
+  display: block;
+  color: #b43d2d;
+  font-size: clamp(24px, 1.9vw, 32px);
+  line-height: 1.05;
+  margin-bottom: 10px;
+}
+.level-card span {
+  display: block;
+  color: #17313b;
+  font-size: clamp(18px, 1.32vw, 23px);
+  line-height: 1.28;
+  font-weight: 600;
+}
+.worksheet-steps {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+.worksheet-step {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  background: rgba(255,253,248,.94);
+  border: 3px solid rgba(15,119,119,.18);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: clamp(17px, 1.25vw, 21px);
+  line-height: 1.22;
+  font-weight: 600;
+}
+.worksheet-step b {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #2c62a0;
+  color: white;
+}
 .deck-body .spin-slide-grid {
   grid-template-columns: minmax(0, 1fr) 360px;
   gap: 14px;
@@ -1778,6 +1857,39 @@ h1 {
 
 <section class="slide layout-content">
 <span class="time-chip">Day 3</span>
+  <div><p class="slide-kicker">Untuk Kelas Kecil</p><h2>Cara Belajar Kita Hari Ini</h2><p class="subtitle">Kalau ada hitungan yang terasa sulit, kita boleh belajar pelan-pelan.</p></div><div class='level-grid'><article class='level-card'><strong>Mudah Dulu</strong><span>Kita mulai dari nominal sederhana seperti Rp10.000, Rp5.000, atau 2 produk.</span></article><article class='level-card'><strong>Pakai Bantuan</strong><span>Boleh pakai gambar, coretan, benda kecil, atau kalkulator bersama guru.</span></article><article class='level-card'><strong>Paham Konsep</strong><span>Yang penting tahu angka itu asalnya dari mana dan dipakai untuk apa.</span></article></div>
+
+<details class="teacher-menu slide-note">
+  <summary>CATATAN GURU</summary>
+  <ul><li>Slide ini membantu guru menurunkan kecemasan siswa kelas kecil sebelum masuk materi.</li><li>Tekankan bahwa memakai kalkulator atau gambar bukan curang; itu alat bantu belajar.</li><li>Jika siswa sudah kuat, guru boleh memberi challenge tambahan setelah contoh mudah selesai.</li></ul>
+</details>
+
+</section>
+
+<section class="slide layout-content">
+<span class="time-chip">Day 3</span>
+  <div><p class="slide-kicker">Kata Penting</p><h2>Kata Hitungan yang Dipakai Hari Ini</h2><p class="subtitle">Kenali dulu artinya sebelum mulai menghitung.</p></div><div class='glossary-grid'><article class='glossary-card'><strong>Modal</strong><span>Uang/biaya yang dipakai untuk membuat produk.</span></article><article class='glossary-card'><strong>Total Modal</strong><span>Jumlah semua biaya yang dipakai untuk bahan dan kemasan.</span></article><article class='glossary-card'><strong>Modal per Produk</strong><span>Biaya rata-rata untuk membuat satu produk.</span></article><article class='glossary-card'><strong>Untung</strong><span>Sisa uang setelah harga jual lebih besar dari modal.</span></article></div>
+
+<details class="teacher-menu slide-note">
+  <summary>CATATAN GURU</summary>
+  <ul><li>Fokus slide: Kata Hitungan yang Dipakai Hari Ini. Jelaskan dengan kalimat pendek, lalu beri ruang siswa menjawab.</li><li>Gunakan nominal sederhana. Bila siswa belum tahu harga asli, boleh pakai estimasi yang masuk akal.</li><li>Ulangi simbol ÷ sebagai tanda bagi. Minta siswa menyebutkan: total modal dibagi jumlah produk.</li></ul>
+</details>
+
+</section>
+
+<section class="slide layout-content">
+<span class="time-chip">Day 3</span>
+  <div><p class="slide-kicker">Level Hitungan</p><h2>Mulai dari Mudah Dulu</h2><p class="subtitle">Guru boleh menyesuaikan nominal agar siswa kelas kecil tetap bisa mengikuti.</p></div><div class='level-grid'><article class='level-card'><strong>Level 1</strong><span>Rp10.000 ÷ 2 = Rp5.000. Cocok untuk pengenalan konsep bagi rata.</span></article><article class='level-card'><strong>Level 2</strong><span>Rp20.000 ÷ 4 = Rp5.000. Cocok jika siswa sudah mulai nyaman.</span></article><article class='level-card'><strong>Challenge</strong><span>Gunakan nominal produk siswa sendiri hanya jika kelas sudah siap.</span></article></div>
+
+<details class="teacher-menu slide-note">
+  <summary>CATATAN GURU</summary>
+  <ul><li>Untuk siswa kecil, mulai dari level 1 dulu. Jangan langsung memakai nominal rumit dari worksheet jika membuat siswa kehilangan fokus.</li><li>Jika perlu, guru boleh menyederhanakan nominal contoh tanpa mengubah konsep worksheet.</li><li>Kalkulator boleh dipakai setelah siswa paham informasi penting: total modal dan jumlah produk.</li></ul>
+</details>
+
+</section>
+
+<section class="slide layout-content">
+<span class="time-chip">Day 3</span>
   <div><p class="slide-kicker">Costing &amp; Pricing</p><h2>CPA Math: Dari Benda Nyata ke Rumus</h2><p class="subtitle">Gunakan pendekatan Concrete - Pictorial - Abstract agar matematika terasa masuk akal.</p></div><div class="big-list"><div class='big-item'><span class='num-dot'>1</span><span>Concrete: lihat bahan nyata seperti beads, tali, kertas, plastik, dan label.</span></div><div class='big-item'><span class='num-dot'>2</span><span>Pictorial: gambar/tabelkan setiap biaya.</span></div><div class='big-item'><span class='num-dot'>3</span><span>Abstract: gunakan rumus total modal dan modal per produk.</span></div></div>
 
 <details class="teacher-menu slide-note">
@@ -1858,7 +1970,7 @@ h1 {
 <span class="time-chip">18 menit</span>
   <div><p class="slide-kicker">Costing &amp; Pricing</p><h2>Worksheet 4 - Budget Master</h2></div>
   <div class="two-col">
-    <div class="slide-panel"><p>Siswa mengisi daftar kebutuhan dan estimasi harga.</p><ul><li>Bahan utama</li><li>Bahan tambahan</li><li>Kemasan</li><li>Dekorasi</li><li>Total modal</li></ul></div>
+    <div class="slide-panel"><p>Siswa mengisi daftar kebutuhan dan estimasi harga.</p><div class='worksheet-steps'><div class='worksheet-step'><b>1</b><span>Tulis nama bahan/alat/kemasan yang dibutuhkan.</span></div><div class='worksheet-step'><b>2</b><span>Tulis estimasi harga dengan nominal sederhana.</span></div><div class='worksheet-step'><b>3</b><span>Jumlahkan pelan-pelan untuk mencari total modal.</span></div><div class='worksheet-step'><b>4</b><span>Jika belum tahu harga asli, tulis perkiraan dulu lalu cek dengan orang tua/wali.</span></div></div></div>
     <div class="image-card"><img src="worksheet-4-budget-master.png" alt="Worksheet 4"></div>
   </div>
 
@@ -2004,13 +2116,13 @@ h1 {
 <span class="time-chip">15 menit</span>
   <div><p class="slide-kicker">Costing &amp; Pricing</p><h2>Worksheet 5 - Pricing Expert</h2></div>
   <div class="two-col">
-    <div class="slide-panel"><p>Siswa menghitung modal per produk, harga jual, dan untung sederhana.</p><ul><li>Cek apakah harga lebih tinggi dari modal.</li><li>Cek apakah harga masih masuk akal untuk target pembeli.</li></ul></div>
+    <div class="slide-panel"><p>Siswa menghitung modal per produk, harga jual, dan untung sederhana.</p><div class='worksheet-steps'><div class='worksheet-step'><b>1</b><span>Tulis total modal dari Worksheet 4.</span></div><div class='worksheet-step'><b>2</b><span>Tulis jumlah produk yang akan dibuat.</span></div><div class='worksheet-step'><b>3</b><span>Hitung modal per produk: total modal dibagi jumlah produk.</span></div><div class='worksheet-step'><b>4</b><span>Pilih harga jual yang lebih tinggi dari modal per produk.</span></div></div></div>
     <div class="image-card"><img src="worksheet-5-pricing-expert.png" alt="Worksheet 5"></div>
   </div>
 
 <details class="teacher-menu slide-note">
   <summary>CATATAN GURU</summary>
-  <ul><li>Fokus slide: Worksheet 5 - Pricing Expert. Jelaskan dengan kalimat pendek, lalu beri ruang siswa menjawab.</li><li>Tunjukkan contoh dulu, lalu beri waktu siswa mengisi worksheet masing-masing.</li><li>Ulangi simbol ÷ sebagai tanda bagi. Minta siswa menyebutkan: total modal dibagi jumlah produk.</li><li>Bantu siswa mengecek apakah harga jual lebih tinggi dari modal per produk dan masih wajar untuk pembeli.</li></ul>
+  <ul><li>Fokus slide: Worksheet 5 - Pricing Expert. Jelaskan dengan kalimat pendek, lalu beri ruang siswa menjawab.</li><li>Tunjukkan contoh dulu, lalu beri waktu siswa mengisi worksheet masing-masing.</li><li>Gunakan nominal sederhana. Bila siswa belum tahu harga asli, boleh pakai estimasi yang masuk akal.</li><li>Ulangi simbol ÷ sebagai tanda bagi. Minta siswa menyebutkan: total modal dibagi jumlah produk.</li></ul>
 </details>
 
 </section>
@@ -2089,7 +2201,7 @@ h1 {
   <div><p class="slide-kicker">Motivasi</p><h2>Hitungan Membantu Produkmu Lebih Siap</h2><p class="subtitle">Sebelum foto bersama, ingat lagi hal baik yang sudah kamu pelajari.</p></div>
   <div class="motivation-board">
     <div class="motivation-hero">
-      <img class="motivation-img" src="assets/worksheet-5-pricing-expert.png" alt="Hitungan Membantu Produkmu Lebih Siap">
+      <img class="motivation-img" src="worksheet-5-pricing-expert.png" alt="Hitungan Membantu Produkmu Lebih Siap">
       <strong>Menghitung modal membuat rencana jualan lebih masuk akal.</strong>
       <span>Hari ini kamu sudah belajar total modal, modal per produk, harga jual, dan untung.</span>
     </div>
@@ -2111,7 +2223,7 @@ h1 {
   <div><p class="slide-kicker">Dokumentasi Kelas</p><h2>Ayo Foto Bersama</h2><p class="subtitle">Buat memori baik dari perjalanan Little Craftpreneurs.</p></div>
   <div class="photo-template">
     <div class="photo-frame">
-      <img src="assets/class-photo-example-day3.png" alt="Contoh dokumentasi kelas online">
+      <img src="class-photo-example-day3.png" alt="Contoh dokumentasi kelas online">
       <div class="photo-badge">Contoh dokumentasi kelas</div>
     </div>
     <div class="photo-checklist">
