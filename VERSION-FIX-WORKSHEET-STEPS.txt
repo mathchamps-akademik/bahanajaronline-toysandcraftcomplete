@@ -1,0 +1,3 @@
+FIXED WORKSHEET_STEPS BUG - 2026-06-25
+Upload isi folder ini ke root repo GitHub Pages.
+Setelah upload, buka URL dengan ?v=fix-final-worksheetsteps untuk menghindari cache browser.
