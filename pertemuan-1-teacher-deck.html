@@ -916,9 +916,22 @@ h1 {
 /* Toys & Craft online deck refinements */
 .deck-body .slide {
   padding: 32px 54px 86px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.deck-body .slide * {
+  box-sizing: border-box;
 }
 .deck-body .slide.layout-content {
   gap: 14px;
+}
+.deck-body .slide.layout-content.focus-content {
+  grid-template-rows: auto auto auto auto;
+  align-content: start;
+}
+.deck-body .slide.layout-content.math-focus {
+  grid-template-rows: auto auto auto;
+  align-content: start;
 }
 .deck-body .slide-kicker {
   font-size: 18px;
@@ -1015,20 +1028,68 @@ h1 {
 }
 .photo-template {
   display: grid;
-  grid-template-columns: .92fr 1.08fr;
-  gap: 20px;
-  align-items: stretch;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 14px;
   min-height: 0;
 }
 .photo-frame {
+  position: relative;
   background: #fffdf8;
   border: 5px solid rgba(45,100,160,.24);
   border-radius: 10px;
-  padding: 18px;
+  padding: 10px;
   box-shadow: 0 14px 32px rgba(23,49,59,.13);
   display: grid;
-  place-items: center;
-  text-align: center;
+  min-height: 0;
+  overflow: hidden;
+}
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+  border-radius: 7px;
+  display: block;
+  background: #17202f;
+}
+.photo-badge {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  background: rgba(255,255,255,.92);
+  color: #0b716e;
+  border: 2px solid rgba(42,173,189,.24);
+  border-radius: 999px;
+  padding: 7px 13px;
+  font-size: 16px;
+  font-weight: 800;
+  box-shadow: 0 8px 16px rgba(23,49,59,.14);
+}
+.photo-checklist {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.photo-check-item {
+  background: #fffdf8;
+  border: 2px solid rgba(45,100,160,.16);
+  border-radius: 10px;
+  padding: 12px 14px;
+  min-height: 78px;
+  box-shadow: 0 10px 22px rgba(23,49,59,.10);
+}
+.photo-check-item strong {
+  display: block;
+  color: #0b716e;
+  font-size: 18px;
+  line-height: 1.05;
+}
+.photo-check-item span {
+  display: block;
+  color: #31445b;
+  font-size: 14px;
+  line-height: 1.2;
+  margin-top: 6px;
 }
 .photo-frame strong {
   display: block;
@@ -1042,6 +1103,567 @@ h1 {
   font-size: clamp(18px, 1.5vw, 24px);
   line-height: 1.25;
   margin-top: 12px;
+}
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+.step-card {
+  background: rgba(255,247,237,.95);
+  border: 4px solid rgba(45,100,160,.24);
+  border-radius: 10px;
+  padding: 16px 18px;
+  box-shadow: 0 12px 28px rgba(23,49,59,.12);
+}
+.step-card .step-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: white;
+  font-weight: 1000;
+  margin-bottom: 10px;
+}
+.step-card h3 {
+  color: var(--blue);
+  font-size: clamp(22px, 1.9vw, 29px);
+  line-height: 1.06;
+  margin-bottom: 8px;
+}
+.step-card p,
+.step-card li {
+  font-size: clamp(17px, 1.28vw, 22px);
+  line-height: 1.28;
+  font-weight: 500;
+}
+.focus-box {
+  background: #fff7cf;
+  border: 4px solid rgba(255,159,28,.55);
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 26px rgba(145,92,0,.12);
+  min-width: 0;
+  max-width: 100%;
+}
+.focus-box h3 {
+  color: #945c00;
+  font-size: clamp(24px, 2vw, 31px);
+  margin-bottom: 10px;
+}
+.focus-box p,
+.focus-box li {
+  font-size: clamp(18px, 1.35vw, 23px);
+  line-height: 1.28;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.choice-grid {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+.focus-answer-row {
+  display: block;
+  position: relative;
+  gap: 12px;
+  align-items: flex-start;
+  margin-top: 12px;
+  min-width: 0;
+  max-width: 100%;
+  overflow: visible;
+  padding-right: 182px;
+}
+.focus-answer-row .choice-grid {
+  margin-top: 0;
+  min-width: 0;
+}
+.focus-slide-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, .78fr);
+  gap: 20px;
+  align-items: stretch;
+  min-height: 0;
+}
+.choice {
+  background: #fffdf8;
+  border: 3px solid rgba(45,100,160,.22);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: clamp(17px, 1.25vw, 22px);
+  line-height: 1.25;
+  font-weight: 600;
+}
+.focus-box .teacher-menu.focus-key {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  max-width: none;
+  width: 170px;
+  box-shadow: 0 8px 18px rgba(23,49,59,.13);
+}
+.focus-box .teacher-menu.focus-key summary {
+  font-size: 14px;
+  padding: 8px 12px;
+}
+.focus-box .teacher-menu.focus-key summary::after {
+  display: none;
+}
+.focus-box .teacher-menu.focus-key ul {
+  max-height: 142px;
+  overflow: auto;
+  padding: 10px 14px 12px 26px;
+}
+.focus-box .teacher-menu.focus-key li {
+  font-size: 15px;
+  line-height: 1.3;
+}
+.working-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.working-cell {
+  background: rgba(255,253,248,.96);
+  border: 3px solid rgba(15,119,119,.2);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+.working-cell strong {
+  display: block;
+  color: var(--blue);
+  font-size: clamp(17px, 1.22vw, 21px);
+  margin-bottom: 6px;
+}
+.working-cell span {
+  display: block;
+  color: #17313b;
+  font-size: clamp(18px, 1.35vw, 23px);
+  line-height: 1.2;
+  font-weight: 700;
+}
+.highlight-text {
+  display: inline;
+  background: linear-gradient(180deg, transparent 52%, rgba(255,218,89,.72) 52%);
+  padding: 0 4px;
+  font-weight: 900;
+  color: #0b716e;
+}
+.callout-ribbon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  background: #fff33f;
+  color: #056baa;
+  border: 3px solid rgba(45,100,160,.22);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: clamp(22px, 1.9vw, 31px);
+  font-weight: 1000;
+  box-shadow: 0 10px 0 rgba(23,49,59,.12);
+}
+.focus-prompt {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+.focus-prompt .prompt-card {
+  background: #fffdf8;
+  border: 4px solid rgba(15,119,119,.23);
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 28px rgba(23,49,59,.12);
+}
+.focus-prompt .prompt-card h3 {
+  color: var(--blue);
+  font-size: clamp(24px, 2vw, 32px);
+  margin-bottom: 10px;
+}
+.focus-prompt .prompt-card p,
+.focus-prompt .prompt-card li {
+  font-size: clamp(18px, 1.35vw, 23px);
+  line-height: 1.3;
+  font-weight: 500;
+}
+.onmic-card {
+  background: rgba(255,247,237,.96);
+  border: 5px solid rgba(239,112,95,.45);
+  border-radius: 12px;
+  padding: 22px 24px;
+  box-shadow: 0 14px 30px rgba(23,49,59,.13);
+}
+.onmic-card h3 {
+  color: #b43d2d;
+  font-size: clamp(28px, 2.5vw, 40px);
+  margin-bottom: 12px;
+}
+.onmic-card p,
+.onmic-card li {
+  font-size: clamp(21px, 1.7vw, 29px);
+  line-height: 1.28;
+  font-weight: 600;
+}
+.fill-line {
+  display: inline-block;
+  min-width: 220px;
+  border-bottom: 5px solid #17313b;
+  transform: translateY(-3px);
+}
+.magic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.magic-card {
+  background: rgba(255,253,248,.96);
+  border: 4px solid rgba(45,100,160,.22);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 12px 28px rgba(23,49,59,.12);
+}
+.magic-card strong {
+  display: block;
+  color: #0b716e;
+  font-size: clamp(24px, 2vw, 32px);
+  line-height: 1.08;
+  margin-bottom: 8px;
+}
+.magic-card span {
+  display: block;
+  font-size: clamp(18px, 1.35vw, 23px);
+  line-height: 1.3;
+  font-weight: 500;
+}
+.thanks-slide {
+  place-items: center;
+  grid-template-rows: 1fr;
+}
+.thanks-card-main {
+  width: min(1120px, 86vw);
+  background: rgba(255,247,237,.97);
+  border: 5px solid rgba(45,100,160,.42);
+  border-radius: 24px;
+  padding: 46px 56px;
+  text-align: center;
+  box-shadow: 0 20px 44px rgba(23,49,59,.18);
+}
+.thanks-card-main .slide-kicker {
+  margin-bottom: 18px;
+}
+.thanks-card-main h2 {
+  color: #b43d2d;
+  font-size: clamp(50px, 6vw, 86px);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+.thanks-pill {
+  display: inline-flex;
+  margin-top: 32px;
+  padding: 18px 40px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #b84231, #8f1f10);
+  color: white;
+  font-size: clamp(26px, 2.5vw, 42px);
+  line-height: 1.1;
+  font-weight: 1000;
+  box-shadow: 0 8px 0 rgba(75,20,12,.24);
+}
+.motivation-board {
+  display: grid;
+  grid-template-columns: .82fr 1.18fr;
+  gap: 22px;
+  align-items: stretch;
+}
+.motivation-hero {
+  background: rgba(255,247,237,.97);
+  border: 5px solid rgba(255,159,28,.48);
+  border-radius: 18px;
+  padding: 28px;
+  display: grid;
+  align-content: center;
+  box-shadow: 0 16px 34px rgba(23,49,59,.14);
+}
+.motivation-img {
+  width: min(210px, 80%);
+  max-height: 150px;
+  object-fit: contain;
+  justify-self: center;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 12px 16px rgba(23,49,59,.14));
+}
+.motivation-hero strong {
+  color: #0b716e;
+  font-size: clamp(30px, 3.05vw, 48px);
+  line-height: 1.04;
+}
+.motivation-hero span {
+  margin-top: 16px;
+  font-size: clamp(19px, 1.42vw, 25px);
+  line-height: 1.32;
+  font-weight: 600;
+}
+.motivation-cards {
+  display: grid;
+  gap: 14px;
+  align-content: center;
+}
+.motivation-cards .magic-card {
+  padding: 16px 18px;
+}
+.motivation-cards .magic-card strong {
+  font-size: clamp(22px, 1.8vw, 30px);
+}
+.motivation-cards .magic-card span {
+  font-size: clamp(17px, 1.25vw, 22px);
+}
+.visual-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  min-height: 0;
+}
+.visual-card {
+  background: rgba(255,247,237,.96);
+  border: 4px solid rgba(45,100,160,.24);
+  border-radius: 12px;
+  padding: 14px;
+  display: grid;
+  grid-template-rows: minmax(130px, 1fr) auto;
+  gap: 10px;
+  box-shadow: 0 14px 30px rgba(23,49,59,.12);
+  min-height: 0;
+}
+.visual-card img {
+  width: 100%;
+  height: 100%;
+  max-height: 240px;
+  object-fit: contain;
+  align-self: center;
+  justify-self: center;
+}
+.visual-card h3 {
+  color: var(--blue);
+  font-size: clamp(22px, 1.8vw, 30px);
+  line-height: 1.06;
+  margin: 0;
+}
+.visual-card p {
+  font-size: clamp(16px, 1.15vw, 20px);
+  line-height: 1.25;
+  font-weight: 500;
+  margin: 6px 0 0;
+}
+.deck-body .spin-slide-grid {
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 14px;
+  align-items: stretch;
+}
+.deck-body .spin-embed {
+  height: min(58vh, 500px);
+}
+.deck-body .spin-slide-grid .big-item {
+  font-size: clamp(17px, 1.25vw, 21px);
+}
+.embed-mode .wheel-page {
+  grid-template-columns: 1fr;
+  place-items: center;
+  padding: 10px;
+  position: relative;
+}
+.embed-mode .wheel-copy {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  z-index: 5;
+  display: grid;
+  gap: 8px;
+  width: min(290px, 44vw);
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255,247,237,.96);
+  border: 3px solid rgba(45,100,160,.28);
+  box-shadow: 0 12px 28px rgba(23,49,59,.16);
+}
+.embed-mode .wheel-copy .eyebrow,
+.embed-mode .wheel-copy h1,
+.embed-mode .wheel-copy .hero-copy,
+.embed-mode .wheel-copy .button-row a {
+  display: none;
+}
+.embed-mode .wheel-copy .button-row {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+.embed-mode .wheel-copy .button {
+  width: 100%;
+  min-height: 50px;
+  padding: 12px 14px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+.embed-mode .wheel-copy #result {
+  margin-top: 0 !important;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.22;
+}
+.embed-mode .wheel-stage {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+.embed-mode .wheel-wrap {
+  width: min(92vw, 92vh, 460px) !important;
+}
+@media (max-width: 760px) {
+  .deck-body .slide {
+    padding: 20px 20px 74px;
+    gap: 10px;
+    overflow: hidden;
+  }
+  .deck-body .slide-kicker {
+    font-size: 13px;
+  }
+  .deck-body .slide h2 {
+    font-size: clamp(28px, 8.4vw, 36px);
+    line-height: 1;
+  }
+  .deck-body .subtitle {
+    font-size: 15px;
+    line-height: 1.2;
+  }
+  .step-grid,
+  .three-col,
+  .two-col,
+  .focus-slide-grid {
+    gap: 8px;
+  }
+  .focus-slide-grid {
+    grid-template-columns: 1fr;
+  }
+  .step-card,
+  .focus-box,
+  .onmic-card,
+  .focus-prompt .prompt-card,
+  .slide-panel {
+    padding: 10px 12px;
+    border-width: 3px;
+    border-radius: 8px;
+  }
+  .step-card .step-label {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 5px;
+    font-size: 13px;
+  }
+  .step-card h3,
+  .focus-box h3,
+  .onmic-card h3,
+  .focus-prompt .prompt-card h3 {
+    font-size: 17px;
+    line-height: 1.06;
+    margin-bottom: 5px;
+  }
+  .step-card p,
+  .step-card li,
+  .focus-box p,
+  .focus-box li,
+  .onmic-card p,
+  .onmic-card li,
+  .focus-prompt .prompt-card p,
+  .focus-prompt .prompt-card li,
+  .choice {
+    font-size: 13px;
+    line-height: 1.17;
+  }
+  .choice-grid {
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .focus-answer-row {
+    gap: 6px;
+    margin-top: 8px;
+    padding-right: 70px;
+  }
+  .focus-answer-row .choice-grid {
+    margin-top: 0;
+  }
+  .choice {
+    padding: 7px 8px;
+    border-width: 2px;
+  }
+  .callout-ribbon {
+    font-size: 14px;
+    padding: 5px 9px;
+    border-width: 2px;
+  }
+  .focus-box .teacher-menu.focus-key {
+    margin-top: 0;
+    width: 62px;
+  }
+  .focus-box .teacher-menu.focus-key summary {
+    font-size: 11px;
+    padding: 6px 7px;
+  }
+  .focus-box .teacher-menu.focus-key ul {
+    max-height: 78px;
+    padding: 6px 8px 8px 18px;
+  }
+  .focus-box .teacher-menu.focus-key li {
+    font-size: 10.5px;
+    line-height: 1.2;
+  }
+  .math-focus .step-grid {
+    grid-template-columns: 1fr;
+  }
+  .math-focus .step-card {
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr);
+    column-gap: 8px;
+    row-gap: 2px;
+    min-height: 0;
+    padding: 8px 10px;
+  }
+  .math-focus .step-card .step-label {
+    grid-row: 1 / span 2;
+    margin-bottom: 0;
+  }
+  .math-focus .choice-grid {
+    grid-template-columns: 1fr;
+  }
+  .math-focus .focus-box {
+    padding: 10px 12px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .math-focus .focus-box h3 {
+    font-size: 16px;
+  }
+  .math-focus .focus-box p,
+  .math-focus .choice {
+    font-size: 11.5px;
+  }
+  .math-focus .choice {
+    padding: 6px 8px;
+    text-align: left;
+    white-space: normal;
+  }
+  .slide .teacher-menu.slide-note {
+    left: 20px;
+    right: 20px;
+    bottom: 10px;
+    max-width: none;
+  }
 }
 @media print {
   .slide .teacher-menu.slide-note { display: none; }
@@ -1121,7 +1743,7 @@ h1 {
 <div class="slide-panel">
 <table class="mini-table">
   <thead><tr><th>Aktivitas</th><th>Durasi</th><th>Yang Kita Lakukan</th></tr></thead>
-  <tbody><tr><td>Opening &amp; kenalan</td><td>7 menit</td><td>Guru membangun suasana dan menjelaskan peran siswa sebagai Little Craftpreneurs.</td></tr><tr><td>Pre Test</td><td>5 menit</td><td>Siswa mengerjakan 5 soal singkat.</td></tr><tr><td>Materi: dari bahan jadi produk</td><td>8 menit</td><td>Guru menjelaskan bahan utama, ide produk, calon pembeli, dan harga awal.</td></tr><tr><td>Spin wheel bahan utama</td><td>5 menit</td><td>Siswa mendapat bahan utama: stiker, manik-manik, atau kertas warna.</td></tr><tr><td>Worksheet 1</td><td>15 menit</td><td>Siswa menulis ide produk dan memilih ide terbaik.</td></tr><tr><td>Worksheet 2</td><td>12 menit</td><td>Siswa menentukan calon pembeli dan alasan mereka tertarik.</td></tr><tr><td>Sharing, Post Test, Closing</td><td>8 menit</td><td>Beberapa siswa sharing, lalu post test dan kesimpulan.</td></tr></tbody>
+  <tbody><tr><td>Opening &amp; kenalan</td><td>7 menit</td><td>Kelas mulai dengan suasana hangat dan peran siswa sebagai Little Craftpreneurs.</td></tr><tr><td>Pre Test</td><td>5 menit</td><td>Siswa mengerjakan 5 soal singkat.</td></tr><tr><td>Materi: dari bahan jadi produk</td><td>8 menit</td><td>Kita belajar bahan utama, ide produk, calon pembeli, dan harga awal.</td></tr><tr><td>Spin wheel bahan utama</td><td>5 menit</td><td>Siswa mendapat bahan utama: stiker, manik-manik, atau kertas warna.</td></tr><tr><td>Worksheet 1</td><td>15 menit</td><td>Siswa menulis ide produk dan memilih ide terbaik.</td></tr><tr><td>Worksheet 2</td><td>12 menit</td><td>Siswa menentukan calon pembeli dan alasan mereka tertarik.</td></tr><tr><td>Sharing, Post Test, Closing</td><td>8 menit</td><td>Beberapa siswa sharing, lalu post test dan kesimpulan.</td></tr></tbody>
 </table>
 </div>
 
@@ -1156,7 +1778,7 @@ h1 {
 
 <section class="slide layout-content">
 <span class="time-chip">Day 1</span>
-  <div><p class="slide-kicker">Learn &amp; Ideation</p><h2>Apa Itu Craftpreneurs?</h2><p class="subtitle">Craftpreneurs adalah belajar membuat produk kreatif sambil memakai matematika sederhana.</p></div><div class="big-list"><div class='big-item'><span class='num-dot'>1</span><span>Kita punya produk: karya craft yang ingin dibuat dan ditawarkan.</span></div><div class='big-item'><span class='num-dot'>2</span><span>Kita punya pembeli: orang yang mungkin tertarik.</span></div><div class='big-item'><span class='num-dot'>3</span><span>Kita punya harga: angka yang dibayar pembeli.</span></div><div class='big-item'><span class='num-dot'>4</span><span>Matematika dipakai untuk memilih, membandingkan, menghitung modal, dan menentukan harga.</span></div></div>
+  <div><p class="slide-kicker">Learn &amp; Ideation</p><h2>Apa Itu Craftpreneurs?</h2><p class="subtitle">Craftpreneurs adalah belajar membuat produk kreatif sambil memakai matematika sederhana.</p></div><div class="big-list"><div class='big-item'><span class='num-dot'>1</span><span>Kita punya produk: karya craft yang ingin dibuat dan ditawarkan.</span></div><div class='big-item'><span class='num-dot'>2</span><span>Kita punya pembeli: orang yang mungkin tertarik.</span></div><div class='big-item'><span class='num-dot'>3</span><span>Kita punya harga: nominal uang yang dibayar pembeli.</span></div><div class='big-item'><span class='num-dot'>4</span><span>Matematika dipakai untuk memilih, membandingkan, menghitung modal, dan menentukan harga.</span></div></div>
 
 <details class="teacher-menu slide-note">
   <summary>CATATAN GURU</summary>
@@ -1167,11 +1789,43 @@ h1 {
 
 <section class="slide layout-content">
 <span class="time-chip">Day 1</span>
-  <div><p class="slide-kicker">Learn &amp; Ideation</p><h2>Contoh Produk Toys &amp; Craft</h2><p class="subtitle">Contoh ini dipakai sebagai inspirasi ide. Siswa tetap memilih produk yang aman dan mudah dibuat di rumah.</p></div><div class="big-list"><div class='big-item'><span class='num-dot'>1</span><span>Stiker nama untuk buku, botol minum, atau laptop.</span></div><div class='big-item'><span class='num-dot'>2</span><span>Gelang manik-manik dengan warna favorit pembeli.</span></div><div class='big-item'><span class='num-dot'>3</span><span>Bookmark dari kertas warna untuk teman yang suka membaca.</span></div><div class='big-item'><span class='num-dot'>4</span><span>Kartu ucapan mini untuk hadiah teman atau keluarga.</span></div><div class='big-item'><span class='num-dot'>5</span><span>Gantungan tas sederhana dari beads atau paper craft.</span></div></div>
+  <div><p class="slide-kicker">Pembahasan Bertahap</p><h2>Dari Bahan Jadi Ide Produk</h2><p class="subtitle">Kita mulai dari benda yang dekat dengan kehidupan sehari-hari.</p></div><div class='step-grid'><article class='step-card'><span class='step-label'>1</span><h3>Lihat bahannya</h3><p>Kita mulai dari bahan utama: stiker, manik-manik, atau kertas warna.</p></article><article class='step-card'><span class='step-label'>2</span><h3>Bayangkan produknya</h3><p>Tanya: bahan ini bisa jadi apa yang lucu, berguna, atau bisa jadi hadiah?</p></article><article class='step-card'><span class='step-label'>3</span><h3>Pilih yang paling mungkin</h3><p>Pilih ide yang mudah dibuat, aman, dan bahannya tidak terlalu sulit dicari.</p></article></div>
 
 <details class="teacher-menu slide-note">
   <summary>CATATAN GURU</summary>
-  <ul><li>Fokus slide: Contoh Produk Toys &amp; Craft. Jelaskan dengan kalimat pendek, lalu beri ruang siswa menjawab.</li><li>Gunakan contoh dari produk craft siswa agar penjelasan terasa dekat.</li><li>Ajak 1-2 siswa menjawab cepat lewat chat atau suara sebelum lanjut.</li></ul>
+  <ul><li>Fokus slide: Dari Bahan Jadi Ide Produk. Jelaskan dengan kalimat pendek, lalu beri ruang siswa menjawab.</li><li>Gunakan contoh dari produk craft siswa agar penjelasan terasa dekat.</li><li>Ajak 1-2 siswa menjawab cepat lewat chat atau suara sebelum lanjut.</li></ul>
+</details>
+
+</section>
+
+<section class="slide layout-content focus-content">
+<span class="time-chip">Jawab di chat</span>
+  <div><p class="slide-kicker">Cek Fokus</p><h2>Pilih Ide yang Sesuai Bahan</h2><p class="subtitle">Siswa cukup memilih ide yang paling masuk akal dari bahan yang diberikan.</p></div>
+  <div class="focus-slide-grid">
+    
+<div class="focus-box">
+  <h3>Cek Fokus - Jawab di chat</h3>
+  <p>Kalau bahan utamamu adalah kertas warna, ide mana yang paling mudah dibuat di rumah?</p>
+  <div class="focus-answer-row">
+    <div class="choice-grid"><div class='choice'>A. Bookmark</div><div class='choice'>B. Sepeda</div><div class='choice'>C. Robot besi</div></div>
+    <details class="teacher-menu focus-key">
+      <summary>BAHAS</summary>
+      <ul><li>A. Bookmark, karena sesuai bahan dan mudah dibuat.</li></ul>
+    </details>
+  </div>
+</div>
+    <div class="focus-prompt">
+      <span class="callout-ribbon">Jawab di chat</span>
+      <div class="prompt-card">
+        <h3>Tanya Dulu</h3>
+        <ul><li>Pilih A, B, atau C.</li><li>Jawab di chat ya.</li><li>Siapkan alasan: produk itu sesuai bahan atau tidak?</li></ul>
+      </div>
+    </div>
+  </div>
+
+<details class="teacher-menu slide-note">
+  <summary>CATATAN GURU</summary>
+  <ul><li>Slide ini khusus checkpoint agar tidak tumpang tindih dengan materi utama.</li><li>Berikan 20-30 detik untuk siswa menjawab, lalu bahas singkat.</li><li>Jika siswa kelas kecil masih ragu, beri pilihan A/B/C dan bacakan satu per satu.</li></ul>
 </details>
 
 </section>
@@ -1180,12 +1834,59 @@ h1 {
 <span class="time-chip">5 menit</span>
   <div><p class="slide-kicker">Learn &amp; Ideation</p><h2>Spin Wheel Bahan Utama</h2><p class="subtitle">Kita memutar spin wheel digital untuk mendapat bahan utama.</p></div>
   <div class="spin-slide-grid">
-    <div class="spin-embed"><iframe src="spin-wheel-day1.html?embed=1" title="Spin Wheel Bahan Utama"></iframe></div>
-    <div class="big-list"><div class='big-item'><span class='num-dot'>1</span><span>Pilihan bahan utama: stiker, manik-manik/beads, kertas warna.</span></div><div class='big-item'><span class='num-dot'>2</span><span>Setelah mendapat bahan, tulis hasilnya di Worksheet 1.</span></div><div class='big-item'><span class='num-dot'>3</span><span>Jika ada kendala teknis, guru boleh memilih dari tiga bahan itu secara acak.</span></div></div></div>
+    <div class="spin-embed"><iframe src="spin-wheel-day1.html?embed=1&amp;v=spin-fix-20260625" title="Spin Wheel Bahan Utama"></iframe></div>
+    <div class="big-list"><div class='big-item'><span class='num-dot'>1</span><span>Pilihan bahan utama: stiker, manik-manik/beads, kertas warna.</span></div><div class='big-item'><span class='num-dot'>2</span><span>Setelah mendapat bahan, tulis hasilnya di Worksheet 1.</span></div><div class='big-item'><span class='num-dot'>3</span><span>Jika spin wheel belum bisa dipakai, kita tetap memilih satu dari tiga bahan itu.</span></div></div></div>
 
 <details class="teacher-menu slide-note">
   <summary>CATATAN GURU</summary>
   <ul><li>Fokus slide: Spin Wheel Bahan Utama. Jelaskan dengan kalimat pendek, lalu beri ruang siswa menjawab.</li><li>Jika spin wheel bermasalah, pilih bahan secara acak dari tiga pilihan: stiker, manik-manik, atau kertas warna.</li><li>Tunjukkan contoh dulu, lalu beri waktu siswa mengisi worksheet masing-masing.</li></ul>
+</details>
+
+</section>
+
+<section class="slide layout-content">
+<span class="time-chip">Day 1</span>
+  <div><p class="slide-kicker">Learn &amp; Ideation</p><h2>Contoh Produk Toys &amp; Craft</h2><p class="subtitle">Lihat contoh ini sebagai inspirasi. Pilih produk yang aman dan mudah dibuat di rumah.</p></div><div class='visual-card-grid'>
+<article class="visual-card">
+  <img src="assets/card-sticker.png" alt="Stiker Nama">
+  <div><h3>Stiker Nama</h3><p>Cocok untuk buku, botol minum, atau kotak pensil.</p></div>
+</article>
+<article class="visual-card">
+  <img src="assets/card-beads.png" alt="Gelang Beads">
+  <div><h3>Gelang Beads</h3><p>Bisa dibuat dengan warna favorit calon pembeli.</p></div>
+</article>
+<article class="visual-card">
+  <img src="assets/card-paper.png" alt="Bookmark">
+  <div><h3>Bookmark</h3><p>Produk kertas warna yang sederhana dan berguna.</p></div>
+</article></div>
+
+<details class="teacher-menu slide-note">
+  <summary>CATATAN GURU</summary>
+  <ul><li>Fokus slide: Contoh Produk Toys &amp; Craft. Jelaskan dengan kalimat pendek, lalu beri ruang siswa menjawab.</li><li>Gunakan contoh dari produk craft siswa agar penjelasan terasa dekat.</li><li>Ajak 1-2 siswa menjawab cepat lewat chat atau suara sebelum lanjut.</li></ul>
+</details>
+
+</section>
+
+<section class="slide layout-content focus-content">
+<span class="time-chip">Jawab on mic</span>
+  <div><p class="slide-kicker">Latihan Bertahap</p><h2>Latihan Ide Produk</h2><p class="subtitle">Lengkapi kalimat singkat ini sebelum mengisi worksheet.</p></div>
+  <div class="focus-slide-grid">
+    <div class="onmic-card">
+      <h3>Jawab on mic</h3>
+      <ul><li>Bahan utamaku adalah <span class='fill-line'></span></li><li>Produk yang bisa kubuat adalah <span class='fill-line'></span></li><li>Produk ini cocok untuk <span class='fill-line'></span></li></ul>
+    </div>
+    <div class="focus-prompt">
+      <span class="callout-ribbon">Isi pelan-pelan</span>
+      <div class="prompt-card">
+        <h3>Contoh Jawaban</h3>
+        <p>Contoh: Bahan utamaku manik-manik. Produkku gelang nama. Cocok untuk teman sekolah.</p>
+      </div>
+    </div>
+  </div>
+
+<details class="teacher-menu slide-note">
+  <summary>CATATAN GURU</summary>
+  <ul><li>Gunakan latihan ini sebelum siswa masuk ke Worksheet 1 agar mereka punya bayangan.</li><li>Jika siswa malu bicara, minta mereka tulis di chat lalu guru bacakan dengan apresiasi.</li><li>Bahasa siswa: bahan - produk - pembeli.</li></ul>
 </details>
 
 </section>
@@ -1231,14 +1932,15 @@ h1 {
   <div><p class="slide-kicker">Math Moment</p><h2>Data Sederhana untuk Memilih Ide</h2><p class="subtitle">Kita bisa bertanya ke teman dan menghitung pilihan terbanyak.</p></div>
   <div class="two-col">
     <div class="slide-panel">
-      <h3>Contoh Aktivitas</h3>
-      <p>Guru bertanya di chat: "Kamu lebih suka produk craft yang mana?"</p>
+      <h3>Tanya Dulu</h3>
+      <p>Produk craft mana yang paling kamu suka?</p>
+      <p><strong>Jawab di chat ya:</strong> pilih A, B, atau C.</p>
       <ul>
         <li>A. Lucu untuk ditempel</li>
         <li>B. Bisa dipakai sehari-hari</li>
         <li>C. Cocok untuk hadiah teman</li>
       </ul>
-      <p>Siswa menjawab A, B, atau C di chat.</p>
+      <p>Jawab A, B, atau C di chat.</p>
     </div>
     <div class="slide-panel">
       <h3>Contoh Hasil Data</h3>
@@ -1256,7 +1958,39 @@ h1 {
 
 <details class="teacher-menu slide-note">
   <summary>CATATAN GURU</summary>
-  <ul><li>Gunakan voting chat sederhana. Siswa cukup mengetik A, B, atau C.</li><li>Tekankan bahwa data membantu memilih ide, tetapi siswa tetap boleh mempertimbangkan keamanan dan kemudahan membuat produk.</li><li>Arahkan kesimpulan dengan kalimat mudah: pilihan terbanyak artinya lebih banyak teman yang tertarik.</li></ul>
+  <ul><li>Guru bertanya di chat: Produk craft mana yang paling kamu suka?</li><li>Gunakan voting chat sederhana. Siswa cukup mengetik A, B, atau C.</li><li>Tekankan bahwa data membantu memilih ide, tetapi siswa tetap boleh mempertimbangkan keamanan dan kemudahan membuat produk.</li><li>Arahkan kesimpulan dengan kalimat mudah: pilihan terbanyak artinya lebih banyak teman yang tertarik.</li></ul>
+</details>
+
+</section>
+
+<section class="slide layout-content focus-content">
+<span class="time-chip">Polling cepat</span>
+  <div><p class="slide-kicker">Cek Fokus</p><h2>Membaca Data Pilihan Teman</h2><p class="subtitle">Latihan kecil sebelum siswa menentukan calon pembeli.</p></div>
+  <div class="focus-slide-grid">
+    
+<div class="focus-box">
+  <h3>Cek Fokus - Polling cepat</h3>
+  <p>Dalam voting, 7 teman memilih produk yang bisa dipakai sehari-hari. Apa artinya?</p>
+  <div class="focus-answer-row">
+    <div class="choice-grid"><div class='choice'>A. Banyak teman tertarik produk yang berguna dipakai</div><div class='choice'>B. Tidak ada teman yang suka produk craft</div><div class='choice'>C. Harga produk harus selalu gratis</div></div>
+    <details class="teacher-menu focus-key">
+      <summary>BAHAS</summary>
+      <ul><li>A. Jika paling banyak memilih produk yang bisa dipakai, ide seperti gelang atau bookmark bisa dipertimbangkan.</li></ul>
+    </details>
+  </div>
+</div>
+    <div class="focus-prompt">
+      <span class="callout-ribbon">Polling cepat</span>
+      <div class="prompt-card">
+        <h3>Tanya Dulu</h3>
+        <ul><li>Lihat jumlah pilihan yang paling besar.</li><li>Pilih jawaban yang sesuai arti data.</li><li>Jawab di polling atau chat.</li></ul>
+      </div>
+    </div>
+  </div>
+
+<details class="teacher-menu slide-note">
+  <summary>CATATAN GURU</summary>
+  <ul><li>Slide ini khusus checkpoint agar tidak tumpang tindih dengan materi utama.</li><li>Berikan 20-30 detik untuk siswa menjawab, lalu bahas singkat.</li><li>Jika siswa kelas kecil masih ragu, beri pilihan A/B/C dan bacakan satu per satu.</li></ul>
 </details>
 
 </section>
@@ -1272,6 +2006,38 @@ h1 {
 
 </section>
 
+<section class="slide layout-content focus-content">
+<span class="time-chip">Jawab di chat</span>
+  <div><p class="slide-kicker">Cek Fokus</p><h2>Cek Mini Ide Produk</h2><p class="subtitle">Jawab cepat sebelum kita masuk ke post test.</p></div>
+  <div class="focus-slide-grid">
+    
+<div class="focus-box">
+  <h3>Cek Fokus - Jawab di chat</h3>
+  <p>Jika ide produk cocok dengan bahan dan calon pembeli, artinya ide itu ...</p>
+  <div class="focus-answer-row">
+    <div class="choice-grid"><div class='choice'>A. Lebih masuk akal untuk dicoba</div><div class='choice'>B. Harus langsung mahal</div><div class='choice'>C. Tidak perlu dibuat</div></div>
+    <details class="teacher-menu focus-key">
+      <summary>BAHAS</summary>
+      <ul><li>A. Ide yang cocok dengan bahan dan pembeli lebih masuk akal untuk dicoba.</li></ul>
+    </details>
+  </div>
+</div>
+    <div class="focus-prompt">
+      <span class="callout-ribbon">Jawab di chat</span>
+      <div class="prompt-card">
+        <h3>Jawab Cepat</h3>
+        <ul><li>Pilih A, B, atau C.</li><li>Ketik jawabanmu di chat.</li><li>Kalau diminta, jelaskan alasanmu singkat saja.</li></ul>
+      </div>
+    </div>
+  </div>
+
+<details class="teacher-menu slide-note">
+  <summary>CATATAN GURU</summary>
+  <ul><li>Cek mini ini dipakai untuk memastikan konsep inti hari ini masih diingat siswa.</li><li>Jika banyak siswa salah, bahas ulang satu contoh sebelum lanjut post test.</li><li>Gunakan tempo cepat agar closing tetap cukup waktu.</li></ul>
+</details>
+
+</section>
+
 <section class="slide layout-content">
 <span class="time-chip">5 menit</span>
   <div><p class="slide-kicker">Day 1</p><h2>Post Test &amp; Closing</h2><p class="subtitle">Siswa mengerjakan post test setelah aktivitas utama selesai.</p></div>
@@ -1282,7 +2048,7 @@ h1 {
       <p><a class="button" href="post-test-day1.html">Buka Post Test Day 1</a></p>
     </div>
     <div class="slide-panel">
-      <p>Kalimat penutup guru:</p>
+      <p>Ingat ya:</p>
       <p>"Yang paling penting bukan ide paling sempurna, tetapi berani mencoba, mau menghitung, dan bisa memperbaiki rencana."</p>
     </div>
   </div>
@@ -1294,31 +2060,62 @@ h1 {
 
 </section>
 
+<section class="slide layout-content thanks-slide">
+
+  <div class="thanks-card-main">
+    <p class="slide-kicker">Terima Kasih</p>
+    <h2>Terima Kasih Sudah Bersikap Baik Selama Mengikuti Kelas Hari Ini!</h2>
+    <span class="thanks-pill">Sampai bertemu di pertemuan berikutnya!</span>
+  </div>
+
+<details class="teacher-menu slide-note">
+  <summary>CATATAN GURU</summary>
+  <ul><li>Slide ini ditampilkan ke siswa sebelum foto bersama.</li><li>Bacakan dengan nada hangat, lalu beri jeda agar siswa merasa diapresiasi.</li><li>Jika waktunya sempit, cukup baca kalimat utama dan lanjut foto bersama.</li></ul>
+</details>
+
+</section>
+
 <section class="slide layout-content">
-<span class="time-chip">Akhir kelas</span>
-  <div><p class="slide-kicker">Dokumentasi Kelas</p><h2>Reminder Foto Bersama</h2><p class="subtitle">Ambil screenshot kelas sebelum meeting ditutup.</p></div>
-  <div class="photo-template">
-    <div class="photo-frame">
-      <div>
-        <strong>Contoh Foto Day 1</strong>
-        <span>Semua siswa angkat worksheet, produk, atau gambar ide craft ke kamera.</span>
-      </div>
+<span class="time-chip">Closing</span>
+  <div><p class="slide-kicker">Motivasi</p><h2>Ide Pertamamu Sudah Mulai Jadi Produk</h2><p class="subtitle">Sebelum foto bersama, ingat lagi hal baik yang sudah kamu pelajari.</p></div>
+  <div class="motivation-board">
+    <div class="motivation-hero">
+      <img class="motivation-img" src="assets/card-paper.png" alt="Ide Pertamamu Sudah Mulai Jadi Produk">
+      <strong>Dari bahan kecil, lahir ide besar.</strong>
+      <span>Hari ini kamu sudah memilih bahan, membuat ide produk, dan memikirkan calon pembeli.</span>
     </div>
-    <div class="slide-panel">
-      <h3>Checklist Guru</h3>
-      <ul>
-        <li>Minta siswa menyalakan kamera jika memungkinkan.</li>
-        <li>Hitung mundur: 3, 2, 1, Little Craftpreneurs!</li>
-        <li>Ambil screenshot kelas online.</li>
-        <li>Simpan foto untuk berita acara harian dan dokumentasi pembelajaran.</li>
-      </ul>
-      <p>Kalimat penutup: "Terima kasih sudah berani mencoba hari ini. Simpan ide dan karyamu, karena kita akan lanjut mengembangkannya di pertemuan berikutnya."</p>
+    <div class="motivation-cards">
+      <div class="magic-card"><strong>Aku punya ide.</strong><span>Ide produkku mulai jelas.</span></div><div class="magic-card"><strong>Aku kenal pembeli.</strong><span>Aku tahu siapa yang mungkin suka produkku.</span></div><div class="magic-card"><strong>Aku siap lanjut.</strong><span>Besok ideku akan punya brand.</span></div>
+      <div class="magic-card"><strong>Next</strong><span>Next meeting: kita buat nama brand, slogan, logo, dan kemasan awal.</span></div>
     </div>
   </div>
 
 <details class="teacher-menu slide-note">
   <summary>CATATAN GURU</summary>
-  <ul><li>Slide ini ditampilkan di akhir kelas sebagai reminder dokumentasi.</li><li>Pastikan foto/screenshot sesuai kebijakan cabang dan kebutuhan laporan.</li><li>Jika ada siswa tidak bisa menyalakan kamera, tetap apresiasi partisipasinya lewat chat atau suara.</li></ul>
+  <ul><li>Gunakan slide ini untuk menutup kelas dengan motivasi, bukan hanya instruksi administratif.</li><li>Motivasi sudah dibuat berbeda per pertemuan dan sesuai materi hari itu.</li><li>Untuk siswa kelas kecil, tekankan bahwa pelan-pelan tetap termasuk belajar.</li></ul>
+</details>
+
+</section>
+
+<section class="slide layout-content">
+<span class="time-chip">Akhir kelas</span>
+  <div><p class="slide-kicker">Dokumentasi Kelas</p><h2>Ayo Foto Bersama</h2><p class="subtitle">Buat memori baik dari perjalanan Little Craftpreneurs.</p></div>
+  <div class="photo-template">
+    <div class="photo-frame">
+      <img src="assets/class-photo-example-day1.png" alt="Contoh dokumentasi kelas online">
+      <div class="photo-badge">Contoh dokumentasi kelas</div>
+    </div>
+    <div class="photo-checklist">
+      <div class="photo-check-item"><strong>Kamera siap</strong><span>Nyalakan kamera jika memungkinkan.</span></div>
+      <div class="photo-check-item"><strong>Tunjukkan karya</strong><span>Angkat worksheet, produk, atau gambar ide craft.</span></div>
+      <div class="photo-check-item"><strong>Senyum dulu</strong><span>Hitung mundur: 3, 2, 1!</span></div>
+      <div class="photo-check-item"><strong>Terima kasih</strong><span>Hari ini kamu sudah berani mencoba.</span></div>
+    </div>
+  </div>
+
+<details class="teacher-menu slide-note">
+  <summary>CATATAN GURU</summary>
+  <ul><li>Slide ini ditampilkan di akhir kelas sebagai reminder dokumentasi.</li><li>Pastikan foto/screenshot sesuai kebijakan cabang dan kebutuhan laporan.</li><li>Contoh foto sudah disematkan agar guru punya gambaran framing dokumentasi kelas online.</li><li>Jika ada siswa tidak bisa menyalakan kamera, tetap apresiasi partisipasinya lewat chat atau suara.</li></ul>
 </details>
 
 </section>

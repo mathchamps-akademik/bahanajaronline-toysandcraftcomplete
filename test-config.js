@@ -177,7 +177,7 @@ window.MATHCHAMPS_TEST_CONFIG = {
   // Hasil test otomatis tersimpan ke dashboard online. Bagian ini tidak perlu diubah.
   supabaseUrl: "https://suifgsvtcbrawzdhyuhk.supabase.co",
   storageKey: "sb_publishable_9BdHYLcpIS0B6Z92WxXf_Q_WpWBswLB",
-  resultPrefix: "api/math-champs-toys-craft-online-results-20260623",
+  resultPrefix: "api/math-champs-toys-craft-online-results-20260625-refresh-v2",
 
   // Opsional: paste link Google Spreadsheet pribadi jika admin ingin menaruh arsip manual.
   spreadsheetUrl: "",
